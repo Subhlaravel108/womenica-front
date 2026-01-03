@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import TopProgress from "@/components/TopProgress";
 
@@ -41,7 +42,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${poppins.variable} antialiased`}
         style={{ colorScheme: 'light' }}
       >
-        <TopProgress />
+        <Suspense fallback={null}>
+          <TopProgress />
+        </Suspense>
         {children}
       </body>
     </html>
