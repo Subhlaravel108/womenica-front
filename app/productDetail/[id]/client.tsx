@@ -262,7 +262,7 @@ const ProductDetailClient = () => {
                   </h1>
                   
                   {/* Rating */}
-                  <div className="flex items-center gap-2 mb-4">
+                  {/* <div className="flex items-center gap-2 mb-4">
                     <div className="flex items-center gap-1">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star
@@ -276,7 +276,7 @@ const ProductDetailClient = () => {
                       ))}
                     </div>
                     <span className="text-sm text-muted-foreground">({product.rating}.0)</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Price */}
