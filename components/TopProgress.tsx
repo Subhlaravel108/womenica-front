@@ -21,6 +21,7 @@ export default function TopProgress() {
   const navigationStartRef = useRef<number>(0);
   const isNavigatingRef = useRef(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const safetyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastHrefRef = useRef<string | null>(null);
 
   // Cleanup function
@@ -28,6 +29,10 @@ export default function TopProgress() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
+    }
+    if (safetyTimeoutRef.current) {
+      clearTimeout(safetyTimeoutRef.current);
+      safetyTimeoutRef.current = null;
     }
     nProgress.done();
     isNavigatingRef.current = false;
@@ -107,7 +112,7 @@ export default function TopProgress() {
       }, 50);
 
       // ✅ FIX: Safety timeout - agar navigation complete na ho to
-      timeoutRef.current = setTimeout(() => {
+      safetyTimeoutRef.current = setTimeout(() => {
         if (isNavigatingRef.current) {
           console.warn('Navigation timeout, forcing completion');
           cleanupNavigation();
