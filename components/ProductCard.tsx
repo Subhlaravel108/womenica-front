@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Star, Eye } from "lucide-react";
-import { getAmazonLink } from "@/data/products";
 import { stripHtmlTags, limitWords } from "@/lib/utils";
 
 interface ProductCardProps {
@@ -16,7 +15,7 @@ interface ProductCardProps {
   rating: number;
   description?: string;
   category: string;
-  asin: string;
+amazon_link: string;
 }
 
 const ProductCard = ({
@@ -28,7 +27,7 @@ const ProductCard = ({
   rating,
   category,
   description,
-  asin,
+  amazon_link,
 }: ProductCardProps) => {
   return (
     <Card variant="elevated" className="overflow-hidden group flex flex-col h-full">
@@ -86,7 +85,7 @@ const ProductCard = ({
             </Link>
           </Button>
           <Button variant="default" className="flex-1" asChild>
-            <a href={getAmazonLink(asin)} target="_blank" rel="noopener noreferrer">
+            <a href={amazon_link} target="_blank" rel="noopener noreferrer">
               Buy Now
               <ExternalLink className="ml-2 h-4 w-4" />
             </a>

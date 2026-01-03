@@ -84,7 +84,7 @@ const FeaturedProducts = () => {
                 description={product.description}
                 rating={product.rating}
                 category={product.category}
-                asin={product.asin}
+                amazon_link={product.amazon_link}
               />
             ))}
           </div>

@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { getProductBySlug, getRelatedProducts, ProductDetail, Product } from "@/lib/api";
-import { getAmazonLink, AFFILIATE_TAG } from "@/data/products";
 import { ChevronRight, Home, Star, ShoppingCart, ExternalLink, Check, Share2 } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { useToast } from "@/hooks/use-toast";
@@ -326,7 +325,7 @@ const ProductDetailClient = () => {
                     className=" text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
                     asChild
                   >
-                    <a href={getAmazonLink(product.asin)} target="_blank" rel="noopener noreferrer">
+                    <a href={product.amazon_link} target="_blank" rel="noopener noreferrer">
                       <ShoppingCart className="mr-2 h-5 w-5" />
                       Buy on Amazon
                     </a>
@@ -375,7 +374,7 @@ const ProductDetailClient = () => {
                     rating={relatedProduct.rating}
                     category={relatedProduct.category}
                     description={relatedProduct.description}
-                    asin={relatedProduct.asin}
+                    amazon_link={relatedProduct.amazon_link}
                   />
                 ))}
               </div>

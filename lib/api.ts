@@ -46,6 +46,7 @@ export interface ApiProduct {
     image?: string;
   };
   sku?: string;
+  amazon_link?: string;
   meta_title?: string;
   meta_description?: string;
   meta_keywords?: string;
@@ -65,7 +66,7 @@ export interface Product {
   categorySlug?: string;
   description?: string;
   features?: string[];
-  asin: string;
+  amazon_link: string;
 }
 
 // API Functions
@@ -110,7 +111,7 @@ const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
     category: categoryTitle,
     categorySlug: categorySlug || apiProduct.slug,
     description: apiProduct.description,
-    asin: apiProduct.sku || apiProduct._id, // Use SKU as ASIN, fallback to _id
+    amazon_link: apiProduct?.amazon_link || "", // Use amazon_link from API
   };
 };
 
@@ -162,7 +163,7 @@ export interface ProductDetail {
   categorySlug?: string;
   description?: string;
   features?: string[];
-  asin: string;
+  amazon_link: string;
   metaTitle?: string;
   metaDescription?: string;
   metaKeywords?: string;
@@ -194,7 +195,7 @@ const mapApiProductDetailToProductDetail = (apiProduct: ApiProduct): ProductDeta
     categorySlug: categorySlug || apiProduct.slug,
     description: apiProduct.description,
     features: [], // API doesn't provide features array
-    asin: apiProduct.sku || apiProduct._id,
+    amazon_link: apiProduct?.amazon_link || "",
     metaTitle: apiProduct.meta_title,
     metaDescription: apiProduct.meta_description,
     metaKeywords: apiProduct.meta_keywords,

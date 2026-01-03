@@ -182,7 +182,7 @@ const CategoryClient = () => {
                       rating={product.rating}
                       category={product.category}
                       description={product.description}
-                      asin={product.asin}
+                      amazon_link={product.amazon_link}
                     />
                   ))}
                 </div>
