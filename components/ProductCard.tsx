@@ -33,11 +33,11 @@ const ProductCard = ({
   return (
     <Card variant="elevated" className="overflow-hidden group flex flex-col h-full">
       <div className="relative overflow-hidden">
-        <Link href={`/productDetail/${slug}`}>
+        <Link href={`/product/${slug}`}>
           <img
             src={image}
             alt={title}
-            className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-56 md:h-64 object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
       </div>
@@ -57,7 +57,7 @@ const ProductCard = ({
           <span className="text-xs text-muted-foreground ml-1">({rating}.0)</span>
         </div> */}
 
-        <Link href={`/productDetail/${slug}`}>
+        <Link href={`/product/${slug}`}>
           <h3 className="font-display text-lg font-semibold text-foreground line-clamp-2 mb-2 group-hover:text-primary transition-colors cursor-pointer hover:underline">
             {title}
           </h3>
@@ -80,7 +80,7 @@ const ProductCard = ({
 
         <div className="flex gap-2 mt-auto">
           <Button variant="outline" className="flex-1" asChild>
-            <Link href={`/productDetail/${slug}`}>
+            <Link href={`/product/${slug}`}>
               <Eye className="mr-2 h-4 w-4" />
               View Details
             </Link>
