@@ -13,12 +13,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: "About Us", href: "#" },
+    { name: "About Us", href: "/about-us" },
     { name: "Contact", href: "#" },
     { name: "Blog", href: "/blog" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Affiliate Disclosure", href: "#" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Affiliate Disclosure", href: "/about-us#affiliate-disclosure" },
   ];
 
   return (
