@@ -90,14 +90,14 @@ const FeaturedProducts = () => {
           </div>
         )}
 
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <Button variant="soft" size="lg" asChild>
             <Link href="/category/sarees">
               View All Products
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
