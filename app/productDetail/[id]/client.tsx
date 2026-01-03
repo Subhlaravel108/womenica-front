@@ -323,7 +323,7 @@ const ProductDetailClient = () => {
                   <Button
                     variant="default"
                     size="lg"
-                    className="flex-1 text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                    className=" text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
                     asChild
                   >
                     <a href={getAmazonLink(product.asin)} target="_blank" rel="noopener noreferrer">
@@ -335,7 +335,7 @@ const ProductDetailClient = () => {
                     variant="outline"
                     size="lg"
                     onClick={handleShare}
-                    className="flex-1 text-base font-semibold border-2 hover:bg-secondary hover:text-foreground transition-colors"
+                    className=" text-base font-semibold border-2 hover:bg-secondary hover:text-foreground transition-colors"
                   >
                     <Share2 className="mr-2 h-5 w-5" />
                     Share
