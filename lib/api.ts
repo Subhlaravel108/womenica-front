@@ -6,6 +6,8 @@ const api = axios.create({
   baseURL: "https://womenica-api.onrender.com/api", 
 });
 
+export default api;
+
 // Types
 export interface Category {
   id?: string | number;
