@@ -371,6 +371,85 @@ export const getRelatedProducts = async (idOrSlug: string): Promise<Product[]> =
   }
 };
 
+// Search Products Function
+export const searchProducts = async (
+  query: string,
+  page: number = 1,
+  limit: number = 1
+): Promise<CategoryProductsResponse> => {
+  try {
+    const response = await api.get(`/frontend/product/search`, {
+      params: { 
+        q: query, 
+        page: page, 
+        limit: limit 
+      },
+    });
+    
+    console.log("API call params:", { q: query, page, limit });
+    const responseData = response.data;
+    
+    console.log("Full API response:", responseData);
+    console.log("Pagination from API:", responseData?.pagination);
+    
+    // Handle response structure: { success: true, data: [...], pagination: {...} }
+    if (!responseData?.success) {
+      throw new Error("API request was not successful");
+    }
+    
+    let productsData: ApiProduct[] = [];
+    let paginationData: Pagination | null = null;
+    
+    // Extract products
+    if (Array.isArray(responseData.data)) {
+      productsData = responseData.data;
+    } else {
+      console.warn("Unexpected products data structure:", responseData.data);
+      productsData = [];
+    }
+    
+    // Extract pagination
+    console.log("Checking pagination:", responseData.pagination);
+    console.log("Pagination exists?", !!responseData.pagination);
+    
+    if (responseData.pagination) {
+      const apiPagination = responseData.pagination;
+      paginationData = {
+        total: Number(apiPagination.total) || 0,
+        page: Number(apiPagination.page) || 1,
+        limit: Number(apiPagination.limit) || limit,
+        totalPages: Number(apiPagination.totalPages) || 1,
+      };
+      console.log("Extracted pagination:", paginationData);
+      console.log("Raw totalPages from API:", apiPagination.totalPages, "Converted:", paginationData.totalPages);
+    } else {
+      console.warn("No pagination in response, using defaults");
+      // Default pagination if not provided
+      paginationData = {
+        total: productsData.length,
+        page: 1,
+        limit: productsData.length,
+        totalPages: 1,
+      };
+    }
+    
+    // Map API products to frontend product format
+    const products = productsData.map(mapApiProductToProduct);
+    
+    const result = {
+      products,
+      category: { title: "Search Results", slug: "search", description: `Results for "${query}"` },
+      pagination: paginationData,
+    };
+    
+    console.log("Search result:", result);
+    return result;
+  } catch (error) {
+    console.error("Error searching products:", error);
+    throw error;
+  }
+};
+
 
 
 

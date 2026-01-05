@@ -189,58 +189,63 @@ const CategoryClient = () => {
 
                 {/* Pagination */}
                 {pagination && pagination.totalPages > 1 && (
-                  <div className="mt-12 flex items-center justify-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handlePageChange(currentPage - 1)}
-                      disabled={currentPage === 1 || loading}
-                    >
-                      <ChevronLeft className="h-4 w-4 mr-1" />
-                      Previous
-                    </Button>
+                  <div className="mt-12">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2 px-4">
+                      {/* Previous Button */}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1 || loading}
+                        className="min-w-[32px] sm:min-w-auto h-8 sm:h-9 text-xs sm:text-sm px-2 sm:px-3 flex items-center justify-center"
+                      >
+                        <ChevronLeft className="h-4 w-4 sm:mr-1" />
+                        <span className="hidden sm:inline">Previous</span>
+                      </Button>
 
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: pagination.totalPages }, (_, i) => i + 1)
-                        .filter((page) => {
-                          // Show first page, last page, current page, and pages around current
-                          return (
-                            page === 1 ||
-                            page === pagination.totalPages ||
-                            (page >= currentPage - 1 && page <= currentPage + 1)
-                          );
-                        })
-                        .map((page, index, array) => {
-                          // Add ellipsis if there's a gap
-                          const showEllipsisBefore = index > 0 && array[index - 1] !== page - 1;
-                          return (
-                            <div key={page} className="flex items-center gap-1">
-                              {showEllipsisBefore && (
-                                <span className="px-2 text-muted-foreground">...</span>
-                              )}
-                              <Button
-                                variant={currentPage === page ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => handlePageChange(page)}
-                                disabled={loading}
-                                className="min-w-[40px]"
-                              >
-                                {page}
-                              </Button>
-                            </div>
-                          );
-                        })}
+                      {/* Page Numbers */}
+                      <div className="flex items-center gap-1 flex-wrap justify-center max-w-full overflow-x-auto pb-2 sm:pb-0">
+                        {Array.from({ length: pagination.totalPages }, (_, i) => i + 1)
+                          .filter((page) => {
+                            return (
+                              page === 1 ||
+                              page === pagination.totalPages ||
+                              (page >= currentPage - 1 && page <= currentPage + 1)
+                            );
+                          })
+                          .map((page, index, array) => {
+                            const showEllipsisBefore = index > 0 && array[index - 1] !== page - 1;
+                            return (
+                              <div key={page} className="flex items-center gap-1">
+                                {showEllipsisBefore && (
+                                  <span className="px-1 sm:px-2 text-muted-foreground text-xs sm:text-sm">...</span>
+                                )}
+                                <Button
+                                  variant={currentPage === page ? "default" : "outline"}
+                                  size="sm"
+                                  onClick={() => handlePageChange(page)}
+                                  disabled={loading}
+                                  className="min-w-[32px] sm:min-w-[40px] h-8 sm:h-9 text-xs sm:text-sm px-2 sm:px-3"
+                                >
+                                  {page}
+                                </Button>
+                              </div>
+                            );
+                          })}
+                      </div>
+
+                      {/* Next Button */}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === pagination.totalPages || loading}
+                        className="min-w-[32px] sm:min-w-auto h-8 sm:h-9 text-xs sm:text-sm px-2 sm:px-3 flex items-center justify-center"
+                      >
+                        <span className="hidden sm:inline">Next</span>
+                        <ChevronRight className="h-4 w-4 sm:ml-1" />
+                      </Button>
                     </div>
-
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handlePageChange(currentPage + 1)}
-                      disabled={currentPage === pagination.totalPages || loading}
-                    >
-                      Next
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Button>
                   </div>
                 )}
               </>

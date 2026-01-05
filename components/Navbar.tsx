@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -15,6 +21,53 @@ const Navbar = () => {
     { name: "Beauty", href: "/category/beauty" },
     { name: "Kitchen", href: "/category/kitchen" },
   ];
+
+  // Handle search box open/close
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isSearchOpen]);
+
+  // Close search when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isSearchOpen && searchInputRef.current) {
+        const target = event.target as Node;
+        if (!searchInputRef.current.contains(target)) {
+          // Check if click is on search button or form
+          const searchButton = (event.target as HTMLElement).closest('button[aria-label="Search"]');
+          if (!searchButton) {
+            setIsSearchOpen(false);
+            setSearchQuery("");
+          }
+        }
+      }
+    };
+
+    if (isSearchOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isSearchOpen]);
+
+  // Handle search submit
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
+
+  // Handle search icon click
+  const handleSearchClick = () => {
+    setIsSearchOpen(!isSearchOpen);
+    if (!isSearchOpen && searchInputRef.current) {
+      setTimeout(() => searchInputRef.current?.focus(), 100);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
@@ -43,9 +96,42 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="icon" aria-label="Search">
-              <Search className="h-5 w-5" />
-            </Button>
+            {/* Search Box */}
+            {isSearchOpen ? (
+              <form onSubmit={handleSearch} className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <Input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-64"
+                />
+                <Button type="submit" size="sm" variant="default">
+                  <Search className="h-4 w-4" />
+                </Button>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => {
+                    setIsSearchOpen(false);
+                    setSearchQuery("");
+                  }}
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </form>
+            ) : (
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Search"
+                onClick={handleSearchClick}
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+            )}
             <Button variant="ghost" size="icon" aria-label="Wishlist">
               <Heart className="h-5 w-5" />
             </Button>
@@ -82,16 +168,28 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <Button variant="ghost" size="icon" aria-label="Search">
-                  <Search className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" aria-label="Wishlist">
-                  <Heart className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" aria-label="Cart">
-                  <ShoppingBag className="h-5 w-5" />
-                </Button>
+              <div className="flex flex-col gap-4 pt-4 border-t border-border">
+                {/* Mobile Search */}
+                <form onSubmit={handleSearch} className="flex items-center gap-2">
+                  <Input
+                    type="text"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="flex-1"
+                  />
+                  <Button type="submit" size="sm" variant="default">
+                    <Search className="h-4 w-4" />
+                  </Button>
+                </form>
+                <div className="flex items-center gap-4">
+                  <Button variant="ghost" size="icon" aria-label="Wishlist">
+                    <Heart className="h-5 w-5" />
+                  </Button>
+                  <Button variant="ghost" size="icon" aria-label="Cart">
+                    <ShoppingBag className="h-5 w-5" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
