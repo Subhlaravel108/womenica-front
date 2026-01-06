@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import CategoryClient from "./client";
 import { getProductCategories } from "@/lib/api";
 import { stripHtmlTags } from "@/lib/utils";
@@ -34,7 +35,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params }: Props) {
-  return <CategoryClient />;
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex flex-col">
+        <div className="flex-1 pt-20 flex items-center justify-center">
+          <div className="text-center">
+            <p className="text-muted-foreground">Loading category...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <CategoryClient />
+    </Suspense>
+  );
 }
 
 
