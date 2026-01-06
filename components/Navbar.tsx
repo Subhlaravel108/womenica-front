@@ -1,25 +1,59 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
+
+interface Category {
+  _id: string;
+  title: string;
+  slug: string;
+}
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [categories, setCategories] = useState<Category[]>([]);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
+  // Check if a link is active
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+
+  // Load categories from JSON file
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const res = await fetch("/data/categories_homepage.json");
+        if (res.ok) {
+          const data = await res.json();
+          setCategories(data.data || []);
+        }
+      } catch (err) {
+        console.warn("Failed to load categories:", err);
+      }
+    };
+    loadCategories();
+  }, []);
+
+  // Build nav links with Home + Categories from JSON
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Sarees", href: "/category/saree" },
-    { name: "Fashion", href: "/category/fashion" },
-    { name: "Beauty", href: "/category/beauty" },
-    { name: "Kitchen", href: "/category/kitchen" },
+    ...categories.map((cat) => ({
+      name: cat.title,
+      href: `/category/${cat.slug}`,
+    })),
   ];
 
   // Handle search box open/close
@@ -77,21 +111,29 @@ const Navbar = () => {
           <Link href="/" className="flex items-center gap-2">
             <Heart className="h-6 w-6 md:h-8 md:w-8 text-primary fill-primary" />
             <span className="font-display text-xl md:text-2xl font-bold text-foreground">
-              Womanica
+              Womenica
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={cn(
+                    "transition-colors duration-200 font-medium",
+                    active
+                      ? "text-primary font-semibold"
+                      : "text-muted-foreground hover:text-primary"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop Actions */}
@@ -158,16 +200,24 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border animate-fade-up">
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={cn(
+                      "transition-colors duration-200 font-medium py-2",
+                      active
+                        ? "text-primary font-semibold"
+                        : "text-foreground hover:text-primary"
+                    )}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
               <div className="flex flex-col gap-4 pt-4 border-t border-border">
                 {/* Mobile Search */}
                 <form onSubmit={handleSearch} className="flex items-center gap-2">

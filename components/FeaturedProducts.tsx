@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ProductCard from "./ProductCard";
-import { getProducts, Product } from "@/lib/api";
+import api, { getProducts, Product, mapApiProductToProduct } from "@/lib/api";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -12,35 +12,86 @@ const FeaturedProducts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const data = await getProducts();
-        // Ensure data is an array
-        if (Array.isArray(data)) {
-          setProducts(data);
-          setError(null);
-        } else {
-          console.error("Products data is not an array:", data);
-          setError("Invalid data format received from server.");
-          setProducts([]);
-        }
-      } catch (err) {
-        console.error("Failed to fetch products:", err);
-        setError("Failed to load products. Please try again later.");
-        setProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await getProducts();
+  //       // Ensure data is an array
+  //       if (Array.isArray(data)) {
+  //         setProducts(data);
+  //         setError(null);
+  //       } else {
+  //         console.error("Products data is not an array:", data);
+  //         setError("Invalid data format received from server.");
+  //         setProducts([]);
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch products:", err);
+  //       setError("Failed to load products. Please try again later.");
+  //       setProducts([]);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchProducts();
-  }, []);
+  //   fetchProducts();
+  // }, []);
 
   // Get featured products - filter by showingOnHomePage or take first 8
   // Note: showingOnHomePage filter should be done in API, but we can also filter here if needed
-  const featuredProducts = products.slice(0, 8);
+  
+
+   const loadProducts = async () => {
+  try {
+    // 1️⃣ Try loading from local JSON file
+    const res = await fetch("/data/featuredProducts_homepage.json");
+
+    if (res.ok) {
+      const data = await res.json();
+      // console.log("Loaded from file:", data);
+
+      // Map JSON data to Product interface format using the shared mapping function
+      const mappedProducts = data.data.map((item: any) => mapApiProductToProduct(item));
+      setProducts(mappedProducts);
+      setError(null);
+      setLoading(false);
+      return; 
+    }
+
+    throw new Error("Local JSON not found");
+  } 
+  catch (err) {
+    console.warn("Local file load failed, calling API...", err);
+
+    // 2️⃣ Fallback → API with Axios
+    try {
+      const apiRes = await getProducts();
+
+      console.log("Loaded from API:", apiRes);
+
+      setProducts(apiRes);  // axios → response.data
+      setError(null);
+    } 
+    catch (apiErr) {
+      console.error(apiErr);
+      setError("Failed to load destinations from both file and API.");
+    }
+    finally {
+      setLoading(false);
+    }
+  }
+};
+
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
+
+
+
+  // const featuredProducts = products.slice(0, 8);
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -67,13 +118,13 @@ const FeaturedProducts = () => {
           <div className="text-center py-12">
             <p className="text-muted-foreground">{error}</p>
           </div>
-        ) : featuredProducts.length === 0 ? (
+        ) : products.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">No featured products available.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
+            {products.map((product) => (
               <ProductCard
                 key={product.slug}
                 slug={product.slug}

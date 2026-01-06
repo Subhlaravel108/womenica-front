@@ -6,7 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getProductBySlug, getRelatedProducts, ProductDetail, Product } from "@/lib/api";
+import { getProductBySlug, getRelatedProducts, ProductDetail, Product, mapApiProductDetailToProductDetail } from "@/lib/api";
 import { ChevronRight, Home, Star, ShoppingCart, ExternalLink, Check, Share2 } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { useToast } from "@/hooks/use-toast";
@@ -24,44 +24,70 @@ const ProductDetailClient = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
+      setLoading(true);
+      
       try {
-        setLoading(true);
-        const productData = await getProductBySlug(slug || "");
-        if (productData) {
-          setProduct(productData);
-          setError(null);
+        // Try loading from local JSON file first
+        const jsonRes = await fetch("/data/all_products.json");
+        if (jsonRes.ok) {
+          const jsonData = await jsonRes.json();
+          const productFromJson = jsonData.data?.find((item: any) => item.slug === slug);
           
-          // Fetch related products from API
-          // Try with MongoDB _id first (most likely what API expects)
-          try {
-            const related = await getRelatedProducts(productData._id);
-            setRelatedProducts(related);
-          } catch (err) {
-            console.error("Failed to fetch related products with _id:", err);
-            // Fallback: try with slug
-            try {
-              const related = await getRelatedProducts(productData.slug);
-              setRelatedProducts(related);
-            } catch (err2) {
-              console.error("Failed to fetch related products with slug:", err2);
-              setRelatedProducts([]);
-            }
+          if (productFromJson) {
+            // Map JSON data to ProductDetail format
+            const mappedProduct = mapApiProductDetailToProductDetail(productFromJson);
+            setProduct(mappedProduct);
+            setError(null);
+            setLoading(false);
+            return;
           }
-        } else {
-          setError("Product not found");
         }
-      } catch (err) {
-        console.error("Failed to fetch product:", err);
-        setError("Failed to load product. Please try again later.");
-      } finally {
-        setLoading(false);
+
+        // If not found in JSON, fetch from API
+        throw new Error("Product not found in local JSON");
+
+      } catch (jsonError) {
+        // Fallback to API fetch
+        try {
+          const productData = await getProductBySlug(slug || "");
+          if (productData) {
+            setProduct(productData);
+            setError(null);
+            
+            // Fetch related products from API
+            // Try with MongoDB _id first (most likely what API expects)
+            try {
+              const related = await getRelatedProducts(productData._id);
+              setRelatedProducts(related);
+            } catch (err) {
+              console.error("Failed to fetch related products with _id:", err);
+              // Fallback: try with slug
+              try {
+                const related = await getRelatedProducts(productData.slug);
+                setRelatedProducts(related);
+              } catch (err2) {
+                console.error("Failed to fetch related products with slug:", err2);
+                setRelatedProducts([]);
+              }
+            }
+          } else {
+            setError("Product not found");
+          }
+        } catch (err) {
+          console.error("Failed to fetch product:", err);
+          setError("Failed to load product. Please try again later.");
+        } finally {
+          setLoading(false);
+        }
       }
     };
+    
 
     if (slug) {
       fetchProduct();
     }
   }, [slug]);
+
   
   if (loading) {
     return (

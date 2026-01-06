@@ -16,18 +16,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!category) {
       return {
-        title: "Category Not Found - Womanica",
+        title: "Category Not Found - Womenica",
         description: "The requested category could not be found.",
       };
     }
 
     return {
-      title: `${category.title} - Womanica`,
+      title: `${category.title} - Womenica`,
       description: stripHtmlTags(category.description || "") || `Discover our handpicked collection of ${category.title.toLowerCase()} products. Quality items at the best prices from Amazon India.`,
     };
   } catch (error) {
     return {
-      title: "Category Not Found - Womanica",
+      title: "Category Not Found - Womenica",
       description: "The requested category could not be found.",
     };
   }

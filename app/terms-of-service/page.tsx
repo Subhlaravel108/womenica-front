@@ -5,7 +5,7 @@ import { contactInfo } from "@/lib/global_variables";
 
 export const metadata: Metadata = {
   title: `Terms of Service - ${contactInfo.websiteName}`,
-  description: "Read Womanica's terms of service to understand the rules and regulations for using our website.",
+  description: "Read Womenica's terms of service to understand the rules and regulations for using our website.",
 };
 
 export default function TermsOfServicePage() {
@@ -32,7 +32,7 @@ export default function TermsOfServicePage() {
                 Agreement to Terms
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                By accessing or using the Womanica website, you agree to be bound by these Terms of Service and all 
+                By accessing or using the Womenica website, you agree to be bound by these Terms of Service and all 
                 applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from 
                 using or accessing this site.
               </p>
@@ -47,7 +47,7 @@ export default function TermsOfServicePage() {
                 Use License
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Permission is granted to temporarily download one copy of the materials on Womanica's website for personal, 
+                Permission is granted to temporarily download one copy of the materials on Womenica's website for personal, 
                 non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under 
                 this license you may not:
               </p>
@@ -66,13 +66,13 @@ export default function TermsOfServicePage() {
                 Disclaimer
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                The materials on Womanica's website are provided on an 'as is' basis. Womanica makes no warranties, 
+                The materials on Womenica's website are provided on an 'as is' basis. Womenica makes no warranties, 
                 expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, 
                 implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement 
                 of intellectual property or other violation of rights.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Further, Womanica does not warrant or make any representations concerning the accuracy, likely results, or 
+                Further, Womenica does not warrant or make any representations concerning the accuracy, likely results, or 
                 reliability of the use of the materials on its website or otherwise relating to such materials or on any 
                 sites linked to this site.
               </p>
@@ -84,9 +84,9 @@ export default function TermsOfServicePage() {
                 Limitations
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                In no event shall Womanica or its suppliers be liable for any damages (including, without limitation, damages 
+                In no event shall Womenica or its suppliers be liable for any damages (including, without limitation, damages 
                 for loss of data or profit, or due to business interruption) arising out of the use or inability to use the 
-                materials on Womanica's website, even if Womanica or a Womanica authorized representative has been notified 
+                materials on Womenica's website, even if Womenica or a Womenica authorized representative has been notified 
                 orally or in writing of the possibility of such damage.
               </p>
             </section>
@@ -97,7 +97,7 @@ export default function TermsOfServicePage() {
                 Product Information and Purchases
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Womanica provides product information and links to products available on Amazon India. We do not sell 
+                Womenica provides product information and links to products available on Amazon India. We do not sell 
                 products directly. All purchases are made through Amazon India, and all transactions are subject to Amazon's 
                 terms and conditions.
               </p>
@@ -107,7 +107,7 @@ export default function TermsOfServicePage() {
                 subject to change without notice.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Womanica is not responsible for:
+                Womenica is not responsible for:
               </p>
               <ul className="list-disc list-inside text-muted-foreground mt-3 space-y-2 ml-4">
                 <li>The quality, safety, or legality of products sold on Amazon</li>
@@ -123,7 +123,7 @@ export default function TermsOfServicePage() {
                 Affiliate Disclosure
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Womanica is a participant in the Amazon Associates Program, an affiliate advertising program designed to 
+                Womenica is a participant in the Amazon Associates Program, an affiliate advertising program designed to 
                 provide a means for sites to earn advertising fees by advertising and linking to Amazon.in.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -156,8 +156,8 @@ export default function TermsOfServicePage() {
                 Intellectual Property
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                All content on the Womanica website, including text, graphics, logos, images, and software, is the 
-                property of Womanica or its content suppliers and is protected by copyright, trademark, and other 
+                All content on the Womenica website, including text, graphics, logos, images, and software, is the 
+                property of Womenica or its content suppliers and is protected by copyright, trademark, and other 
                 intellectual property laws. You may not use, reproduce, or distribute any content from this website without 
                 our prior written permission.
               </p>
@@ -181,7 +181,7 @@ export default function TermsOfServicePage() {
                 Modifications
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Womanica may revise these Terms of Service at any time without notice. By using this website, you are 
+                Womenica may revise these Terms of Service at any time without notice. By using this website, you are 
                 agreeing to be bound by the then current version of these Terms of Service.
               </p>
             </section>
@@ -214,5 +214,7 @@ export default function TermsOfServicePage() {
     </div>
   );
 }
+
+
 
 

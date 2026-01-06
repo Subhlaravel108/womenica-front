@@ -5,7 +5,7 @@ import { contactInfo } from "@/lib/global_variables";
 
 export const metadata: Metadata = {
   title: `Search Products - ${contactInfo.websiteName}`,
-  description: "Search for products on Womanica",
+  description: "Search for products on Womenica",
 };
 
 export default function SearchPage() {

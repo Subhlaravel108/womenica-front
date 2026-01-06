@@ -1,7 +1,9 @@
 export const contactInfo = {
-  websiteName: "Womanica",
+  websiteName: "Womenica",
   // Add other contact info here if needed
 };
+
+
 
 
 

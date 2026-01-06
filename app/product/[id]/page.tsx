@@ -15,19 +15,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!product) {
       return {
-        title: "Product Not Found - Womanica",
+        title: "Product Not Found - Womenica",
         description: "The requested product could not be found.",
       };
     }
 
     return {
-      title: product.metaTitle || `${product.title} - Womanica`,
+      title: product.metaTitle || `${product.title} - Womenica`,
       description: product.metaDescription || stripHtmlTags(product.description || ""),
       keywords: product.metaKeywords,
     };
   } catch (error) {
     return {
-      title: "Product Not Found - Womanica",
+      title: "Product Not Found - Womenica",
       description: "The requested product could not be found.",
     };
   }

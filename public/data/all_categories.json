@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "pagination": {
+    "total": 6,
+    "page": 1,
+    "limit": 12,
+    "totalPages": 1
+  },
+  "data": [
+    {
+      "_id": "695ba765a1f8ca207c7f5550",
+      "title": "Fashion",
+      "description": "<p>Fashion</p>",
+      "meta_title": "Fashion",
+      "meta_description": "Fashion",
+      "meta_keywords": "Fashion",
+      "image": "https://m.media-amazon.com/images/I/51HTyfRbS9L._SY625_.jpg",
+      "status": "Active",
+      "slug": "fashion",
+      "showingOnHomePage": false,
+      "createdAt": "2026-01-05T11:58:29.609Z"
+    },
+    {
+      "_id": "6958e5371d486a29cf7c9b26",
+      "title": "Western Wear",
+      "description": "<p>Modern and stylish western wear for women including tops, jeans, dresses, skirts, and jumpsuits.</p>",
+      "meta_title": "Western Wear for Women | Dresses, Tops & Jeans",
+      "meta_description": "Buy trendy western wear for women online. Shop dresses, tops, jeans, skirts & stylish outfits.",
+      "meta_keywords": "western wear, women western dress, tops for women, jeans for women",
+      "image": "https://tse2.mm.bing.net/th/id/OIP.LAmkrBDjt67vjsFJvoO4AQHaJ3?pid=Api&P=0&h=180",
+      "status": "Active",
+      "slug": "western-wear",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-03T09:45:27.689Z"
+    },
+    {
+      "_id": "6958e4bc1d486a29cf7c9b25",
+      "title": "Stores",
+      "description": "<p>Exclusive designer boutiques, handloom and handicraft stores offering unique women’s fashion collections.</p>",
+      "meta_title": "Designer Boutiques & Handloom Stores for Women",
+      "meta_description": "Explore designer boutiques and handloom stores offering exclusive women’s fashion collections.",
+      "meta_keywords": "designer boutique, handloom store, handicraft fashion",
+      "image": "https://cdn2.stylecraze.com/wp-content/uploads/2017/10/8.-The-Chalk-Boutique.jpg.webp",
+      "status": "Active",
+      "slug": "stores",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-03T09:43:24.477Z",
+      "updatedAt": "2026-01-03T09:43:41.506Z"
+    },
+    {
+      "_id": "6958e2641d486a29cf7c9b24",
+      "title": "Women's Shoes",
+      "description": "<p>Stylish and comfortable footwear for women including sandals, ballerinas, heels, and casual shoes.</p>",
+      "meta_title": "Women's Shoes Online | Sandals, Heels & Flats",
+      "meta_description": "Discover fashionable women’s shoes online. Buy sandals, heels, ballerinas & casual footwear.",
+      "meta_keywords": "women shoes, sandals, heels, ballerinas, footwear",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.RsTJ5RniKYa_8tPuHoJ3NQHaGj?pid=Api&P=0&h=180",
+      "status": "Active",
+      "slug": "womens-shoes",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-03T09:33:24.492Z"
+    },
+    {
+      "_id": "6958e1f41d486a29cf7c9b23",
+      "title": "Accessories",
+      "description": "<p>Fashion accessories for women including watches, handbags, clutches, sunglasses, and more.</p>",
+      "meta_title": "Women’s Fashion Accessories | Bags, Watches & More",
+      "meta_description": "Shop stylish women’s accessories online. Handbags, watches, sunglasses & fashion essentials.",
+      "meta_keywords": "women accessories, handbags, watches, sunglasses, fashion accessories",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.WR3AMIHgus_NBlAMz4sJ9QHaEv?pid=Api&P=0&h=180",
+      "status": "Active",
+      "slug": "accessories",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-03T09:31:32.500Z"
+    },
+    {
+      "_id": "6958e1251d486a29cf7c9b22",
+      "title": "Women's Clothing",
+      "description": "<p>Explore a wide range of women's clothing including western wear, ethnic outfits, casuals, party wear, and seasonal fashion trends.</p>",
+      "meta_title": "Women's Clothing Online | Latest Fashion for Women",
+      "meta_description": "Shop the latest women's clothing online. Discover trendy western wear, ethnic outfits, casual dresses, and more at best prices.",
+      "meta_keywords": "women clothing, ladies wear, western wear, ethnic wear, women fashion",
+      "image": "https://thumbs.dreamstime.com/b/fashion-women-clothes-set-trendy-apparel-collection-winter-female-clothing-lady-s-garment-263108023.jpg",
+      "status": "Active",
+      "slug": "womens-clothing",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-03T09:28:05.843Z"
+    }
+  ]
+}

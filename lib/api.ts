@@ -88,7 +88,8 @@ const formatPrice = (price: number): string => {
 };
 
 // Helper function to map API product to frontend product
-const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
+// This function handles both API responses and JSON file data structures
+export const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
   // Extract category information from API response
   let categoryTitle = "General";
   let categorySlug = "";
@@ -104,8 +105,8 @@ const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
   return {
     slug: apiProduct.slug || apiProduct._id, // Use slug, fallback to _id
     title: apiProduct.title,
-    image: apiProduct.image_url,
-    price: formatPrice(apiProduct.product_price),
+    image: apiProduct.image_url || "", // Map image_url to image (handles both API and JSON)
+    price: formatPrice(apiProduct.product_price || 0),
     originalPrice: undefined, // API doesn't provide original price
     rating: 4, // Default rating, can be updated if API provides it
     category: categoryTitle,
@@ -170,7 +171,7 @@ export interface ProductDetail {
 }
 
 // Helper function to map API product detail to frontend product detail
-const mapApiProductDetailToProductDetail = (apiProduct: ApiProduct): ProductDetail => {
+export const mapApiProductDetailToProductDetail = (apiProduct: ApiProduct): ProductDetail => {
   // Extract category information from API response
   let categoryTitle = "General";
   let categorySlug = "";
@@ -446,6 +447,69 @@ export const searchProducts = async (
     return result;
   } catch (error) {
     console.error("Error searching products:", error);
+    throw error;
+  }
+};
+
+// Get Trending Products Function
+export const getTrendingProducts = async (
+  page: number = 1,
+  limit: number = 12
+): Promise<CategoryProductsResponse> => {
+  try {
+    const response = await api.get(`/frontend/products/inTrending`, {
+      params: { page, limit },
+    });
+    
+    const responseData = response.data;
+    
+    // Handle response structure: { success: true, data: [...], pagination: {...} }
+    if (!responseData?.success) {
+      throw new Error("API request was not successful");
+    }
+    
+    let productsData: ApiProduct[] = [];
+    let paginationData: Pagination | null = null;
+    
+    // Extract products
+    if (Array.isArray(responseData.data)) {
+      productsData = responseData.data;
+    } else {
+      console.warn("Unexpected products data structure:", responseData.data);
+      productsData = [];
+    }
+    
+    // Extract pagination
+    if (responseData.pagination) {
+      const apiPagination = responseData.pagination;
+      paginationData = {
+        total: Number(apiPagination.total) || 0,
+        page: Number(apiPagination.page) || 1,
+        limit: Number(apiPagination.limit) || limit,
+        totalPages: Number(apiPagination.totalPages) || 1,
+      };
+    } else {
+      // Default pagination if not provided
+      paginationData = {
+        total: productsData.length,
+        page: 1,
+        limit: productsData.length,
+        totalPages: 1,
+      };
+    }
+    
+    // Map API products to frontend product format
+    const products = productsData.map(mapApiProductToProduct);
+    
+    const result = {
+      products,
+      category: { title: "Trending Products", slug: "trending", description: "Discover the most trending products" },
+      pagination: paginationData,
+    };
+    
+    return result;
+  } catch (error) {
+    console.error("Error fetching trending products:", error);
     throw error;
   }
 };

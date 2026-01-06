@@ -5,7 +5,7 @@ import { contactInfo } from "@/lib/global_variables";
 
 export const metadata: Metadata = {
   title: `About Us - ${contactInfo.websiteName}`,
-  description: "Learn about Womanica - your trusted destination for curated women's products from Amazon India.",
+  description: "Learn about Womenica - your trusted destination for curated women's products from Amazon India.",
 };
 
 export default function AboutUsPage() {
@@ -17,7 +17,7 @@ export default function AboutUsPage() {
           {/* Hero Section */}
           <div className="text-center mb-12 md:mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-              About Womanica
+              About Womenica
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Your trusted destination for handpicked women's products from Amazon India
@@ -32,7 +32,7 @@ export default function AboutUsPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                At Womanica, we believe that every woman deserves access to quality products that enhance her lifestyle. 
+                At Womenica, we believe that every woman deserves access to quality products that enhance her lifestyle. 
                 Our mission is to curate and showcase the best products available on Amazon India, making it easier for 
                 you to discover items that truly matter.
               </p>
@@ -65,7 +65,7 @@ export default function AboutUsPage() {
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">Trusted Recommendations</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Every product featured on Womanica has been carefully selected. We provide honest recommendations 
+                    Every product featured on Womenica has been carefully selected. We provide honest recommendations 
                     and detailed information to help you make informed purchasing decisions.
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export default function AboutUsPage() {
                 Affiliate Disclosure
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Womanica is a participant in the Amazon Associates Program, an affiliate advertising program designed 
+                Womenica is a participant in the Amazon Associates Program, an affiliate advertising program designed 
                 to provide a means for sites to earn advertising fees by advertising and linking to Amazon.in.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -141,5 +141,7 @@ export default function AboutUsPage() {
     </div>
   );
 }
+
+
 
 

@@ -1,0 +1,112 @@
+{
+  "success": true,
+  "pagination": {
+    "total": 4,
+    "page": 1,
+    "limit": 9,
+    "totalPages": 1
+  },
+  "data": [
+    {
+      "_id": "69589ee65b02ab15f0b538bf",
+      "title": "Top Product Trends Shaping Online Shopping in 2026",
+      "slug": "top-product-trends-shaping-online-shopping-in-2026",
+      "author": "Womenica Editorial Team",
+      "categoryId": "695895e0675ae9793b224a22",
+      "summary": "Explore the top product trends shaping the future of online shopping in 2025, including innovation, customer experience, and sustainability.",
+      "content": "<p>The e-commerce landscape continues to evolve rapidly, driven by changing consumer preferences and technology advancements.</p><p><br></p><p>Product trends in 2025 focus on improved usability, sustainability, and value for money.&nbsp;</p><p>Customers are increasingly looking for products that offer durability, functionality, and ethical sourcing.</p><p><br></p><p>Personalization, smart features, and enhanced online experiences are also influencing buying decisions.&nbsp;</p><p>Understanding these trends helps shoppers and businesses adapt to the future of online commerce.</p><p><br></p>",
+      "featuredImage": "https://res.cloudinary.com/do6ckqkq5/image/upload/v1767415488/womenica_app_uploads/wc2pbizmkx1akexayri6.jpg",
+      "publishDate": null,
+      "showingOnHomePage": false,
+      "status": "Published",
+      "tags": [
+        "product trends",
+        "ecommerce trends",
+        "online shopping insights",
+        "future products"
+      ],
+      "meta_title": "Product Trends 2025 | Latest Online Shopping Insights",
+      "meta_description": "Discover the top product trends of 2025 and how they are shaping the future of online shopping.",
+      "meta_keywords": "product trends 2025, ecommerce trends, online shopping insights, future of products",
+      "published_at": "2026-01-03T04:45:26.895Z",
+      "createdAt": "2026-01-03T04:45:26.895Z",
+      "updatedAt": "2026-01-03T04:45:26.895Z"
+    },
+    {
+      "_id": "69589e1f5b02ab15f0b538be",
+      "title": "New Product Launches You Should Know About This Season",
+      "slug": "new-product-launches-you-should-know-about-this-season",
+      "author": "Womenica Editorial Team",
+      "categoryId": "69589cbc5b02ab15f0b538bc",
+      "summary": "Explore the latest product launches and newly released items in the e-commerce market. \nStay updated with trending products and fresh collections available this season.",
+      "content": "<p>Every season brings exciting new product launches across various categories.&nbsp;</p><p>From innovative designs to improved features, new products are constantly entering the market.</p><p><br></p><p>Staying informed about new launches helps shoppers discover better alternatives and upgraded versions&nbsp;</p><p>of popular items. Brands are focusing on quality, usability, and customer satisfaction more than ever.</p><p><br></p><p>Whether you are looking for everyday essentials or premium products, exploring new launches ensures&nbsp;</p><p>you stay ahead of trends and make informed purchase decisions.</p>",
+      "featuredImage": "https://res.cloudinary.com/do6ckqkq5/image/upload/v1767415287/womenica_app_uploads/g8mofwi8zvd7x7yf1tpv.jpg",
+      "publishDate": null,
+      "showingOnHomePage": true,
+      "status": "Published",
+      "tags": [
+        "new product launches",
+        "latest products",
+        "ecommerce updates",
+        "trending products"
+      ],
+      "meta_title": "New Product Launches | Latest Products in E-commerce",
+      "meta_description": "Discover the latest product launches and newly released items in the e-commerce market this season.",
+      "meta_keywords": "new products, product launches, latest ecommerce products, trending products",
+      "published_at": "2026-01-03T04:43:03.140Z",
+      "createdAt": "2026-01-03T04:42:07.246Z",
+      "updatedAt": "2026-01-03T04:43:03.140Z"
+    },
+    {
+      "_id": "69589d825b02ab15f0b538bd",
+      "title": "How to Choose the Right Product Online: A Complete Buying Guide",
+      "slug": "how-to-choose-the-right-product-online-a-complete-buying-guide",
+      "author": "Womenica Editorial Team",
+      "categoryId": "695895e0675ae9793b224a22",
+      "summary": "Learn how to choose the right product online by comparing features, quality, pricing, and reviews. \nThis complete buying guide helps you shop smarter and avoid common online shopping mistakes.",
+      "content": "<p>Online shopping offers convenience and variety, but choosing the right product can be challenging.&nbsp;</p><p>With thousands of options available, making an informed decision is essential.</p><p><br></p><p>Start by understanding your requirements clearly. Compare product features, materials, and specifications&nbsp;</p><p>to ensure they match your needs. Always check customer reviews and ratings to evaluate real user experiences.</p><p><br></p><p>Price comparison is another important step. Look for value rather than the lowest price.&nbsp;</p><p>Finally, review return policies, warranties, and seller credibility before placing your order.</p><p><br></p><p>By following these simple steps, you can confidently select products that meet your expectations and budget.</p><p><br></p>",
+      "featuredImage": "https://res.cloudinary.com/do6ckqkq5/image/upload/v1767415130/womenica_app_uploads/kixhlctxn01sejofnehr.webp",
+      "publishDate": null,
+      "showingOnHomePage": true,
+      "status": "Published",
+      "tags": [
+        "product buying guide",
+        "online shopping tips",
+        "ecommerce products",
+        "smart shopping"
+      ],
+      "meta_title": "Product Buying Guide | How to Choose the Right Product Online",
+      "meta_description": "Discover how to choose the right product online with this complete buying guide covering features, pricing, reviews, and quality checks.",
+      "meta_keywords": "product buying guide, how to choose products online, ecommerce buying tips, online shopping guide",
+      "published_at": "2026-01-03T04:39:30.849Z",
+      "createdAt": "2026-01-03T04:39:30.849Z",
+      "updatedAt": "2026-01-03T04:39:30.849Z"
+    },
+    {
+      "_id": "6957affdec674ba83b8066d2",
+      "title": "Top 10 Must-Have Skincare Products for Glowing Skin",
+      "slug": "top-10-must-have-skincare-products-for-glowing-skin",
+      "author": "Ravi Prajapat",
+      "categoryId": "69579e16d8149c37c05a6d81",
+      "summary": "Choosing the right skincare products can transform your skin. This guide covers the top 10 must-have skincare products every woman should include in her daily routine for healthy and glowing skin.",
+      "content": "<p>Healthy skin starts with the right skincare routine. Here are the top 10 skincare products you should not miss:</p><ol><li><strong>Gentle Face Cleanser:</strong> Removes dirt and excess oil without drying the skin.</li><li><strong>Hydrating Toner:</strong> Restores skin balance and tightens pores.</li><li><strong>Vitamin C Serum:</strong> Brightens skin and reduces dark spots.</li><li><strong>Moisturizer:</strong> Keeps your skin soft and hydrated all day.</li><li><strong>Sunscreen SPF 50:</strong> Protects your skin from harmful UV rays.</li></ol><p>Using these products regularly can help improve your skin texture, glow, and overall appearance. Always choose products suitable for your skin type.</p>",
+      "featuredImage": "https://res.cloudinary.com/do6ckqkq5/image/upload/v1767412921/womenica_app_uploads/fhqs9f1swxrt1m5roaax.jpg",
+      "publishDate": null,
+      "showingOnHomePage": true,
+      "status": "Published",
+      "tags": [
+        "skincare",
+        "beauty",
+        "women",
+        "face care",
+        "ecommerce guide"
+      ],
+      "meta_title": "Top Skincare Products for Glowing Skin | Beauty Guide",
+      "meta_description": "Discover the top 10 skincare products for glowing and healthy skin. A complete beauty guide for daily skincare routine.",
+      "meta_keywords": "skincare products, beauty products, face care, glowing skin, ecommerce beauty",
+      "published_at": "2026-01-02T11:46:05.648Z",
+      "createdAt": "2026-01-02T11:46:05.648Z",
+      "updatedAt": "2026-01-03T04:02:11.957Z"
+    }
+  ]
+}

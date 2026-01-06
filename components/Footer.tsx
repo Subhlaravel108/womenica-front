@@ -1,24 +1,43 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Heart, Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 
-const AFFILIATE_TAG = "womanica-21";
+const AFFILIATE_TAG = "womenica-21";
+
+interface Category {
+  _id: string;
+  title: string;
+  slug: string;
+}
 
 const Footer = () => {
-  const categories = [
-    { name: "Sarees", search: "women+saree" },
-    { name: "Fashion", search: "women+fashion" },
-    { name: "Makeup", search: "women+makeup" },
-    { name: "Beauty", search: "women+beauty" },
-    { name: "Home Decor", search: "home+decor" },
-    { name: "Kitchen", search: "kitchen+accessories" },
-  ];
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  // Load categories from JSON file
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const res = await fetch("/data/categories_homepage.json");
+        if (res.ok) {
+          const data = await res.json();
+          setCategories(data.data || []);
+        }
+      } catch (err) {
+        console.warn("Failed to load categories:", err);
+      }
+    };
+    loadCategories();
+  }, []);
 
   const quickLinks = [
     { name: "About Us", href: "/about-us" },
-    { name: "Contact", href: "#" },
+    // { name: "Contact", href: "#" },
     { name: "Blog", href: "/blog" },
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Service", href: "/terms-of-service" },
-    { name: "Affiliate Disclosure", href: "/about-us#affiliate-disclosure" },
+    // { name: "Affiliate Disclosure", href: "/about-us#affiliate-disclosure" },
   ];
 
   return (
@@ -29,7 +48,7 @@ const Footer = () => {
           <div>
             <a href="#" className="flex items-center gap-2 mb-4">
               <Heart className="h-8 w-8 text-primary fill-primary" />
-              <span className="font-display text-2xl font-bold">Womanica</span>
+              <span className="font-display text-2xl font-bold">Womenica</span>
             </a>
             <p className="text-primary-foreground/70 mb-6">
               Your trusted destination for curated women's products from Amazon India. 
@@ -71,18 +90,20 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Categories</h4>
             <ul className="space-y-3">
-              {categories.map((category) => (
-                <li key={category.name}>
-                  <a
-                    href={`https://www.amazon.in/s?k=${category.search}&tag=${AFFILIATE_TAG}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-foreground/70 hover:text-primary transition-colors"
-                  >
-                    {category.name}
-                  </a>
-                </li>
-              ))}
+              {categories.length > 0 ? (
+                categories.map((category) => (
+                  <li key={category._id}>
+                    <Link
+                      href={`/category/${category.slug}`}
+                      className="text-primary-foreground/70 hover:text-primary transition-colors"
+                    >
+                      {category.title}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="text-primary-foreground/70">Loading categories...</li>
+              )}
             </ul>
           </div>
 
@@ -109,7 +130,7 @@ const Footer = () => {
               Affiliate Disclosure
             </h4>
             <p className="text-primary-foreground/70 text-sm">
-              Womanica is a participant in the Amazon Associates Program. 
+              Womenica is a participant in the Amazon Associates Program. 
               As an Amazon Associate, we earn from qualifying purchases. 
               Product prices and availability are accurate as of the date/time 
               indicated and are subject to change.
@@ -119,7 +140,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-primary-foreground/20 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Womanica. All rights reserved. 
+            © {new Date().getFullYear()} Womenica. All rights reserved. 
             Made with <Heart className="inline h-4 w-4 text-primary fill-primary" /> for women everywhere.
           </p>
         </div>

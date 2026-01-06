@@ -27,7 +27,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Womanica - Best Products for Women",
+  title: "Womenica - Best Products for Women",
   description: "Discover handpicked products for modern women. Shop sarees, fashion, beauty, kitchen essentials and more at amazing prices.",
 };
 
@@ -37,10 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ colorScheme: 'light' }}>
+    <html lang="en" style={{ colorScheme: 'light' }} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${poppins.variable} antialiased`}
         style={{ colorScheme: 'light' }}
+        suppressHydrationWarning
       >
         <Suspense fallback={null}>
           <TopProgress />

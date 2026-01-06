@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -54,10 +55,10 @@ const Hero = () => {
     className="w-1/2 sm:w-auto"
     asChild
   >
-    <a href="#categories" className="flex items-center justify-center text-xs sm:text-lg">
+    <Link href="/collections" className="flex items-center justify-center text-xs sm:text-lg">
       Explore Collections
       <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-    </a>
+    </Link>
   </Button>
 
   <Button
@@ -66,9 +67,10 @@ const Hero = () => {
     className="w-1/2 sm:w-auto  border-black"
     asChild
   >
-    <a href="#products" className="flex items-center justify-center">
+    <Link href="/trending" className="flex items-center justify-center">
       View Trending
-    </a>
+      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+    </Link>
   </Button>
 </div>
 

@@ -5,7 +5,7 @@ import { contactInfo } from "@/lib/global_variables";
 
 export const metadata: Metadata = {
   title: `Privacy Policy - ${contactInfo.websiteName}`,
-  description: "Read Womanica's privacy policy to understand how we collect, use, and protect your personal information.",
+  description: "Read Womenica's privacy policy to understand how we collect, use, and protect your personal information.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
                 Introduction
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                At Womanica ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy 
+                At Womenica ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy 
                 explains how we collect, use, disclose, and safeguard your information when you visit our website.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -193,5 +193,7 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
+
+
 
 
