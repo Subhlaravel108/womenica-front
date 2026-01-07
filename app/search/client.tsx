@@ -7,10 +7,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
-import { searchProducts, Product, Pagination } from "@/lib/api";
+import { mapApiProductToProduct, searchProducts, Product, Pagination } from "@/lib/api";
 import { ChevronRight, Home, ChevronLeft, Search as SearchIcon, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { stripHtmlTags } from "@/lib/utils";
 
 const SearchClient = () => {
   const searchParams = useSearchParams();
@@ -19,6 +20,8 @@ const SearchClient = () => {
   const currentPage = parseInt(searchParams.get("page") || "1", 10);
   
   const [searchQuery, setSearchQuery] = useState(query);
+  const [allProductsJson, setAllProductsJson] = useState<any[] | null>(null);
+  const [dataSource, setDataSource] = useState<"json" | "api">("json");
   const [products, setProducts] = useState<Product[]>([]);
   const [pagination, setPagination] = useState<Pagination | null>(null);
   const [loading, setLoading] = useState(false);
@@ -29,10 +32,98 @@ const SearchClient = () => {
   }, [query]);
 
   useEffect(() => {
-    fetchSearchResults();
-  }, [query, currentPage]);
+    // Load JSON once (preferred data source)
+    loadProductsFromJson();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const fetchSearchResults = async () => {
+  useEffect(() => {
+    // After JSON is available, do client-side searching/pagination.
+    // If JSON failed, fall back to API.
+    if (dataSource === "json" && allProductsJson) {
+      applyJsonSearchAndPagination();
+    } else if (dataSource === "api") {
+      fetchSearchResultsFromApi();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, currentPage, dataSource, allProductsJson]);
+
+  const loadProductsFromJson = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      setDataSource("json");
+
+      const res = await fetch("/data/all_products.json");
+      if (!res.ok) {
+        throw new Error("Local JSON not found");
+      }
+
+      const data = await res.json();
+      const items = Array.isArray(data?.data) ? data.data : [];
+      setAllProductsJson(items);
+      setDataSource("json");
+      console.log("load from json")
+    } catch (err) {
+      console.warn("JSON load failed, using API fallback...", err);
+      setAllProductsJson(null);
+      setDataSource("api");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const applyJsonSearchAndPagination = () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const ITEMS_PER_PAGE = 12;
+      const q = (query || "").trim().toLowerCase();
+
+      const filtered = !q
+        ? allProductsJson || []
+        : (allProductsJson || []).filter((p: any) => {
+            const title = String(p?.title || "").toLowerCase();
+            const desc = stripHtmlTags(String(p?.description || "")).toLowerCase();
+            const metaTitle = String(p?.meta_title || "").toLowerCase();
+            const metaDesc = String(p?.meta_description || "").toLowerCase();
+            const metaKeywords = String(p?.meta_keywords || "").toLowerCase();
+            return (
+              title.includes(q) ||
+              desc.includes(q) ||
+              metaTitle.includes(q) ||
+              metaDesc.includes(q) ||
+              metaKeywords.includes(q)
+            );
+          });
+
+      const mapped = filtered.map((item: any) => mapApiProductToProduct(item));
+
+      const total = mapped.length;
+      const totalPages = Math.max(1, Math.ceil(total / ITEMS_PER_PAGE));
+      const safePage = Math.min(Math.max(1, currentPage), totalPages);
+
+      const startIndex = (safePage - 1) * ITEMS_PER_PAGE;
+      const pageItems = mapped.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+      setProducts(pageItems);
+      setPagination({
+        total,
+        page: safePage,
+        limit: ITEMS_PER_PAGE,
+        totalPages,
+      });
+    } catch (err) {
+      console.error("Failed to search products from JSON:", err);
+      // If something unexpected happens while processing JSON, fall back to API.
+      setDataSource("api");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchSearchResultsFromApi = async () => {
     try {
       setLoading(true);
       setError(null);
@@ -55,9 +146,13 @@ const SearchClient = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}&page=1`);
+    const next = searchQuery.trim();
+    if (next) {
+      router.push(`/search?q=${encodeURIComponent(next)}&page=1`);
+      return;
     }
+    // Empty search -> show all products
+    router.push(`/search?page=1`);
   };
 
   const handleClearSearch = () => {
@@ -72,6 +167,11 @@ const SearchClient = () => {
       router.push(`/search?page=${newPage}`);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleRetry = () => {
+    // Retry JSON first; it will fall back to API automatically on failure.
+    loadProductsFromJson();
   };
 
   return (
@@ -160,7 +260,7 @@ const SearchClient = () => {
             ) : error ? (
               <div className="text-center py-12">
                 <p className="text-destructive mb-4">{error}</p>
-                <Button onClick={fetchSearchResults} variant="outline">
+                <Button onClick={handleRetry} variant="outline">
                   Try Again
                 </Button>
               </div>

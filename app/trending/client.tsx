@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
-import { getTrendingProducts, Product, Pagination } from "@/lib/api";
+import { getTrendingProducts, Product, Pagination, mapApiProductToProduct } from "@/lib/api";
 import { ChevronRight, Home, ChevronLeft, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -30,10 +30,47 @@ const TrendingClient = () => {
       setLoading(true);
       setError(null);
 
+      // 1️⃣ Try loading from JSON file first
+      try {
+        const jsonRes = await fetch('/data/all_trending_products.json');
+        if (jsonRes.ok) {
+          const jsonData = await jsonRes.json();
+          const trendingProducts = jsonData.data || [];
+
+          if (trendingProducts.length > 0) {
+            // Map products to Product format
+            const mappedProducts = trendingProducts.map(mapApiProductToProduct);
+
+            // Calculate pagination
+            const ITEMS_PER_PAGE = 12;
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const paginatedProducts = mappedProducts.slice(startIndex, endIndex);
+            const totalPages = Math.ceil(mappedProducts.length / ITEMS_PER_PAGE);
+
+            setProducts(paginatedProducts);
+            setPagination({
+              total: mappedProducts.length,
+              page: currentPage,
+              limit: ITEMS_PER_PAGE,
+              totalPages: totalPages,
+            });
+            
+            console.log("✅ Loaded trending products from JSON");
+            setLoading(false);
+            return; // Successfully loaded from JSON
+          }
+        }
+      } catch (jsonError) {
+        console.warn("Failed to load from JSON, trying API...", jsonError);
+      }
+
+      // 2️⃣ Fallback to API if JSON fails
       const response = await getTrendingProducts(currentPage, 12);
 
       setProducts(response.products);
       setPagination(response.pagination);
+      console.log("📡 Loaded trending products from API");
     } catch (err) {
       console.error("Failed to fetch trending products:", err);
       setError("Failed to load trending products. Please try again later.");
@@ -232,4 +269,5 @@ const TrendingClient = () => {
 };
 
 export default TrendingClient;
+
 

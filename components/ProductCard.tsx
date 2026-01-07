@@ -30,64 +30,76 @@ const ProductCard = ({
   amazon_link,
 }: ProductCardProps) => {
   return (
-    <Card variant="elevated" className="overflow-hidden group flex flex-col h-full">
-      <div className="relative overflow-hidden">
+    <Card variant="elevated" className="overflow-hidden group flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+      {/* Image Container */}
+      <div className="relative overflow-hidden bg-card">
         <Link href={`/product/${slug}`}>
           <img
             src={image}
             alt={title}
-            className="w-full h-56 md:h-64 object-contain transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-64 object-contain p-3 sm:p-4 md:p-6 transition-transform duration-500 group-hover:scale-105"
+            onError={(e) => {
+              e.currentTarget.src = '/placeholder-image.png';
+            }}
           />
         </Link>
       </div>
 
-      <div className="p-4 flex flex-col flex-1">
-        {/* <div className="flex items-center gap-1 mb-2">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              className={`h-4 w-4 ${
-                i < rating
-                  ? "fill-gold text-gold"
-                  : "fill-muted text-muted"
-              }`}
-            />
-          ))}
-          <span className="text-xs text-muted-foreground ml-1">({rating}.0)</span>
-        </div> */}
-
+      {/* Content */}
+      <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-1">
+        {/* Title */}
         <Link href={`/product/${slug}`}>
-          <h3 className="font-display text-lg font-semibold text-foreground line-clamp-2 mb-2 group-hover:text-primary transition-colors cursor-pointer hover:underline">
+          <h3 className="font-display text-base sm:text-lg md:text-xl font-semibold text-foreground line-clamp-2 mb-2 sm:mb-3 group-hover:text-primary transition-colors cursor-pointer min-h-[3rem] sm:min-h-[3.5rem]">
             {title}
           </h3>
         </Link>
 
-        {description && (
+        {/* Description */}
+        {/* {description && (
+          <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 hidden sm:block">
+            {limitWords(stripHtmlTags(description), 80)}
+          </p>
+        )} */}
+         {description && (
           <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
             {limitWords(stripHtmlTags(description), 100)}
           </p>
         )}
 
-        <div className="flex items-baseline gap-2 mb-4">
-          <span className="text-xl font-bold text-primary">{price}</span>
+        {/* Price */}
+        <div className="flex items-baseline gap-2 mb-3 sm:mb-4 flex-wrap">
+          <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary">{price}</span>
           {originalPrice && (
-            <span className="text-sm text-muted-foreground line-through">
+            <span className="text-xs sm:text-sm text-muted-foreground line-through">
               {originalPrice}
             </span>
           )}
         </div>
 
-        <div className="flex gap-2 mt-auto">
-          <Button variant="outline" className="flex-1" asChild>
+        {/* Action Buttons */}
+        <div className="flex flex-row gap-2 mt-auto">
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="w-full text-xs sm:text-sm h-9 sm:h-10" 
+            asChild
+          >
             <Link href={`/product/${slug}`}>
-              <Eye className="mr-2 h-4 w-4" />
-              View Details
+              <Eye className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden xs:inline">View</span>
+              <span className="xs:hidden">View</span>
             </Link>
           </Button>
-          <Button variant="default" className="flex-1" asChild>
+          <Button 
+            variant="default" 
+            size="sm"
+            className="w-full text-xs sm:text-sm h-9 sm:h-10" 
+            asChild
+          >
             <a href={amazon_link} target="_blank" rel="noopener noreferrer">
-              Buy Now
-              <ExternalLink className="ml-2 h-4 w-4" />
+              <span className="hidden sm:inline">Buy Now</span>
+              <span className="sm:hidden">Buy</span>
+              <ExternalLink className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
             </a>
           </Button>
         </div>
