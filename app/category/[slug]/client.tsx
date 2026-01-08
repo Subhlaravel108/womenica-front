@@ -35,71 +35,46 @@ const CategoryClient = () => {
 
         // 1️⃣ Try loading from JSON file first
         try {
-          const jsonRes = await fetch("/data/all_products.json");
+          const jsonRes = await fetch(`/data/products_in_category_${slug}.json`);
           if (jsonRes.ok) {
             const jsonData = await jsonRes.json();
-            
-            // Get category info from categories JSON
-            const categoriesRes = await fetch("/data/categories_homepage.json");
-            let categoryData: Category | null = null;
-            
-            if (categoriesRes.ok) {
-              const categoriesData = await categoriesRes.json();
-              const foundCategory = categoriesData.data?.find((cat: any) => cat.slug === slug);
-              
-              if (foundCategory) {
-                categoryData = {
-                  id: foundCategory._id,
-                  title: foundCategory.title,
-                  slug: foundCategory.slug,
-                  description: foundCategory.description,
-                  image: foundCategory.image,
-                };
-              }
-            }
+            const productsData = jsonData.data || [];
 
-            if (categoryData && jsonData.data) {
-              // Get category _id from the fetched category data
-              const categoryId = (categoryData as any)._id || categoryData.id;
-              
-              // Filter products by category (match productCategoryId with category _id)
-              const categoryProducts = jsonData.data.filter((product: any) => {
-                // Try to match by productCategoryId
-                if (product.productCategoryId === categoryId) {
-                  return true;
-                }
-                // Or if we have category info in product
-                if (product.category?.slug === slug || product.productCategory?.slug === slug) {
-                  return true;
-                }
-                return false;
-              });
-
-              // Map products to Product format
-              const mappedProducts = categoryProducts.map(mapApiProductToProduct);
-
-              // Calculate pagination
+            if (productsData.length > 0) {
+              const mappedProducts = productsData.map(mapApiProductToProduct);
               const itemsPerPage = 12;
               const startIndex = (currentPage - 1) * itemsPerPage;
               const endIndex = startIndex + itemsPerPage;
               const paginatedProducts = mappedProducts.slice(startIndex, endIndex);
               const totalPages = Math.ceil(mappedProducts.length / itemsPerPage);
 
-              setCategory(categoryData);
-              setCategoryProducts(paginatedProducts);
-              setPagination({
-                total: mappedProducts.length,
-                page: currentPage,
-                limit: itemsPerPage,
-                totalPages: totalPages,
-              });
-              setLoading(false);
-              console.log("Loaded category data from JSON");
-              return; // Successfully loaded from JSON
+              // Get category from first product if available
+              const categoryData: Category | null = mappedProducts[0]?.category
+                ? {
+                    id: mappedProducts[0].category.id || slug,
+                    title: mappedProducts[0].category.title || slug,
+                    slug: mappedProducts[0].category.slug || slug,
+                    description: mappedProducts[0].category.description || "",
+                    image: mappedProducts[0].category.image || "",
+                  }
+                : null;
+
+              if (categoryData) {
+                setCategory(categoryData);
+                setCategoryProducts(paginatedProducts);
+                setPagination({
+                  total: mappedProducts.length,
+                  page: currentPage,
+                  limit: itemsPerPage,
+                  totalPages: totalPages,
+                });
+                setLoading(false);
+                return;
+              }
             }
           }
         } catch (jsonError) {
-          console.warn("Failed to load from JSON, trying API...", jsonError);
+          // JSON failed, will use API
         }
 
         // 2️⃣ Fallback to API if JSON fails

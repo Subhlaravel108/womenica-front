@@ -514,6 +514,68 @@ export const getTrendingProducts = async (
   }
 };
 
+export const getBestSellers = async (
+  page: number = 1,
+  limit: number = 12
+): Promise<CategoryProductsResponse> => {
+  try {
+    const response = await api.get(`/frontend/products/bestSellers`, {
+      params: { page, limit },
+    });
+    
+    const responseData = response.data;
+    
+    // Handle response structure: { success: true, data: [...], pagination: {...} }
+    if (!responseData?.success) {
+      throw new Error("API request was not successful");
+    }
+    
+    let productsData: ApiProduct[] = [];
+    let paginationData: Pagination | null = null;
+    
+    // Extract products
+    if (Array.isArray(responseData.data)) {
+      productsData = responseData.data;
+    } else {
+      console.warn("Unexpected products data structure:", responseData.data);
+      productsData = [];
+    }
+    
+    // Extract pagination
+    if (responseData.pagination) {
+      const apiPagination = responseData.pagination;
+      paginationData = {
+        total: Number(apiPagination.total) || 0,
+        page: Number(apiPagination.page) || 1,
+        limit: Number(apiPagination.limit) || limit,
+        totalPages: Number(apiPagination.totalPages) || 1,
+      };
+    } else {
+      // Default pagination if not provided
+      paginationData = {
+        total: productsData.length,
+        page: 1,
+        limit: productsData.length,
+        totalPages: 1,
+      };
+    }
+    
+    // Map API products to frontend product format
+    const products = productsData.map(mapApiProductToProduct);
+    
+    const result = {
+      products,
+      category: { title: "Best Sellers", slug: "bestsellers", description: "Shop our best-selling products" },
+      pagination: paginationData,
+    };
+    
+    return result;
+  } catch (error) {
+    console.error("Error fetching best sellers:", error);
+    throw error;
+  }
+};
+
 
 
 

@@ -47,13 +47,15 @@ const Navbar = () => {
     loadCategories();
   }, []);
 
-  // Build nav links with Home + Categories from JSON
+  // Build nav links with Home + Categories from JSON + Trending + Best Sellers
   const navLinks = [
     { name: "Home", href: "/" },
     ...categories.map((cat) => ({
       name: cat.title,
       href: `/category/${cat.slug}`,
     })),
+    { name: "Trending", href: "/trending" },
+    { name: "Best Sellers", href: "/bestsellers" },
   ];
 
   // Handle search box open/close

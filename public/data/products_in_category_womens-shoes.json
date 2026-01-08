@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "6958f76034c78ead13279999",
+      "title": "Bata Women's Block Heel Sandal",
+      "slug": "bata-womens-block-heel-sandal",
+      "description": "<h3><strong>Product details</strong></h3><p>Material type</p><p>EVA</p><p>Closure type</p><p>Buckle</p><p>Heel type</p><p>Block Heel</p><p>Water resistance level</p><p>Not Water Resistant</p><p>Style</p><p>Ankle-Strap</p><p>Strap type</p><p>Ankle Strap</p><p>Country of Origin</p><p>India</p><h3><strong>About this item</strong></h3><ul><li>Comfortable and light</li><li>Color Black</li><li>Material Synthetic</li><li>Clean with dry clothes</li><li>Heel Hight 3 inch</li></ul><h3><strong>Additional Information</strong></h3><p>Manufacturer</p><p>Bata India, Bata India</p><p>Packer</p><p>Bata India</p><p>Importer</p><p>Bata India</p><p>Item Weight</p><p>760 g</p><p>Item Dimensions LxWxH</p><p>8 x 19.5 x 16 Centimeters</p><p>Net Quantity</p><p>2 Count</p><p>Generic Name</p><p>Sandal</p>",
+      "product_price": 662,
+      "productCategoryId": "6958e2641d486a29cf7c9b24",
+      "sku": "B0CBKHL44R",
+      "image_url": "https://m.media-amazon.com/images/I/51U+ttRj5YL._SY695_.jpg",
+      "status": "active",
+      "meta_title": "Bata Women’s Black Sandal – Stylish Comfortable Footwear for Women",
+      "meta_description": "Shop Bata Women’s Black Sandal (6616112) online. Elegant design with comfortable sole, perfect for daily wear, casual outings and all-day comfort.",
+      "meta_keywords": "Bata Women Sandal, Black Women Sandal, Bata Footwear Women, Comfortable Women Sandal, Stylish Women Sandal, Bata 6616112, Women’s Casual Footwear",
+      "showingOnHomePage": true,
+      "amazon_link": "https://www.amazon.in/bata-womens-block-heel-sandal/dp/B0CBKHL44R/ref=sr_1_1",
+      "createdAt": "2026-01-03T11:02:56.420Z"
+    },
+    {
+      "_id": "6958f80334c78ead1327999a",
+      "title": "Women Stylish Black Whisper Ridge Wedges Sandals | Gorgeous Open Toe High Heels Ladies Sandal | Footwear for Women & Girls (Black)",
+      "slug": "women-stylish-black-whisper-ridge-wedges-sandals-or-gorgeous-open-toe-high-heels-ladies-sandal-or-footwear-for-women-and",
+      "description": "<p>Material type</p><p>Rexine</p><p>Closure type</p><p>Slip On</p><p>Heel type</p><p>Wedge Heel</p><p>Water resistance level</p><p>Water Resistant</p><p>Style</p><p>Fashion Sandal</p><p>Outer material</p><p>Rexine</p><p>Country of Origin</p><p>India</p><h3><strong>About this item</strong></h3><ul><li>Material: High-quality Rexine fabric for a stylish and durable finish</li><li>Design: Trendy platform style with a comfortable fit</li><li>Sole Type: Anti-slip sole for better traction and support</li><li>Comfort: Soft cushioned footbed for long-lasting comfort</li><li>Occasion: Ideal for casual, party, and daily wear.</li></ul><h3><strong>Additional Information</strong></h3><p>Manufacturer</p><p>M K Traders B/114 Veena Enclave Lal Sweet Corner Nangloi Delhi 110041, M K Traders B/114 Veena Enclave Lal Sweet Corner Nangloi Delhi 110041</p><p>Packer</p><p><br></p><p>M K Traders B/114 Veena Enclave Lal Sweet Corner Nangloi Delhi 110041</p><p>Item Weight</p><p><br></p><p>320 g</p><p>Item Dimensions LxWxH</p><p>27 x 8 x 8 Centimeters</p><p>Net Quantity</p><p>1.0 Set</p><p>Generic Name</p><p>Sandal</p>",
+      "product_price": 499.01,
+      "productCategoryId": "6958e2641d486a29cf7c9b24",
+      "sku": "B0FX58QB8D",
+      "image_url": "https://m.media-amazon.com/images/I/51NTgfANbPL._SY695_.jpg",
+      "status": "active",
+      "meta_title": "Mahroj Women Stylish Whisper Ridge Wedges Sandals – Gorgeous Open Toe Ladies Footwear",
+      "meta_description": "Shop Mahroj Women’s Stylish Whisper Ridge Wedges Sandals online. Elegant open toe design with comfortable heel, perfect for casual outings, parties & daily wear.",
+      "meta_keywords": "Mahroj Women Sandals, Whisper Ridge Wedges, Women Wedges Sandals, Open Toe Ladies Footwear, Gorgeous Women Sandals, Stylish Wedges, Comfortable Women Shoes",
+      "showingOnHomePage": true,
+      "amazon_link": "https://www.amazon.in/women-stylish-black-whisper-ridge-wedges-sandals-or-gorgeous-open-toe-high-heels-ladies-sandal-or-footwear-for-women-and/dp/B0FX58QB8D/ref=sr_1_1",
+      "createdAt": "2026-01-03T11:05:39.723Z",
+      "inTrending": false,
+      "isBestSeller": false,
+      "updatedAt": "2026-01-07T08:48:08.174Z"
+    }
+  ],
+  "pagination": {
+    "total": 2,
+    "page": 1,
+    "limit": 12,
+    "totalPages": 1
+  }
+}

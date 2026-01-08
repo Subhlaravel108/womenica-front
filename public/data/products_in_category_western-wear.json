@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "6958e9731d486a29cf7c9b29",
+      "title": "Bewakoof Women's Letter Print Relaxed Fit T-Shirt",
+      "slug": "bewakoof-womens-letter-print-relaxed-fit-t-shirt",
+      "description": "<h3><strong>Product details</strong></h3><p>Material composition</p><p>Cotton</p><p>Fit type</p><p>Relaxed Fit</p><p>Sleeve type</p><p>Half Sleeve</p><p>Collar style</p><p>Collarless</p><p>Length</p><p>Standard Length</p><p>Neck style</p><p>Round Neck</p><h3><strong>About this item</strong></h3><ul><li>Fit Description : Boyfriend Fit - Overall Loose on Body</li><li>Fabric Description : Single Jersey - Classic, lightweight jersey fabric comprising 100% cotton.</li><li>Print Type: Typography</li><li>Neck : Round Neck</li><li>Style Tip : Style this t-shirt with a pair of joggers and sneakers for a sporty look.</li></ul><h3><strong>Additional Information</strong></h3><p>Manufacturer</p><p>Bewakoof</p><p>Item Weight</p><p>250 g</p><p>Item Dimensions LxWxH</p><p>30 x 25 x 3 Centimeters</p><p>Net Quantity</p><p>1 Count</p><p>Generic Name</p><p>T-Shirt</p>",
+      "product_price": 449,
+      "productCategoryId": "6958e5371d486a29cf7c9b26",
+      "sku": "B08P3J18FD",
+      "image_url": "https://m.media-amazon.com/images/I/51Nwy-5M6rL._SX569_.jpg",
+      "status": "active",
+      "meta_title": "Bewakoof Women Typography Cotton T-Shirt – Casual Printed Round Neck Tee",
+      "meta_description": "Shop Bewakoof Women’s Typography Cotton T-Shirt online. Soft breathable cotton fabric with trendy print, round neck and regular fit. Perfect casual wear for daily use and outings.",
+      "meta_keywords": "Bewakoof T Shirt, Women Cotton T Shirt, Typography T Shirt Women, Printed T Shirt, Casual Wear Women, Round Neck T Shirt, Bewakoof Womens Tee, Graphic T Shirt",
+      "showingOnHomePage": true,
+      "amazon_link": "https://www.amazon.in/bewakoof-womens-letter-print-relaxed-fit-t-shirt/dp/B08P3J18FD/ref=sr_1_1",
+      "createdAt": "2026-01-03T10:03:31.562Z",
+      "inTrending": false,
+      "isBestSeller": false,
+      "updatedAt": "2026-01-07T08:48:31.724Z"
+    },
+    {
+      "_id": "6958f38534c78ead13279996",
+      "title": "Globus Women's Polyester Regular Fit Top",
+      "slug": "globus-womens-polyester-regular-fit-top",
+      "description": "<h3><strong>Product details</strong></h3><p>Material composition</p><p>100% Polyester</p><p>Pattern</p><p>Solid</p><p>Fit type</p><p>Regular Fit</p><p>Sleeve type</p><p>Sleeveless</p><p>Collar style</p><p>Crew Neck</p><p>Neck style</p><p>Crew Neck</p><p>Country of Origin</p><p>India</p><h3><strong>About this item</strong></h3><ul><li>Wash Care: Machine Wash</li><li>Fit: Regular Fit</li><li>Pattern: Solid</li><li>Fabric: Polyester</li><li>Occasion: Party</li></ul><h3><strong>Additional Information</strong></h3><p>Manufacturer</p><p>Globus Stores Pvt. Ltd., Rahejas, Corner Of Main Avenue and VP Road, Santacruz (West), Mumbai-400054, Globus Stores Pvt. Ltd., Rahejas, Corner Of Main Avenue and VP Road, Santacruz (West), Mumbai-400054</p><p>Packer</p><p><br></p><p>ARAMEX, Sai Dhara Logistics Park, Borivali Village, Landmark R.K, Petrol Pump Bhiwandi, Thane 421302</p><p>Importer</p><p><br></p><p>Globus Stores Pvt. Ltd., Rahejas, Corner Of Main Avenue and VP Road, Santacruz (West), Mumbai-400054</p><p>Item Weight</p><p><br></p><p>200 g</p><p>Item Dimensions LxWxH</p><p>30 x 25 x 6 Centimeters</p><p>Net Quantity</p><p>1 Count</p><p>Generic Name</p><p>Top</p>",
+      "product_price": 808.99,
+      "productCategoryId": "6958e5371d486a29cf7c9b26",
+      "sku": "B0CJ9Q45FC",
+      "image_url": "https://m.media-amazon.com/images/I/71gNJR7VCsL._SX679_.jpg",
+      "status": "active",
+      "meta_title": "Globus Women Sleeveless Pleated Top – Stylish Casual Wear for Women",
+      "meta_description": "Buy Globus Women Sleeveless Pleated Top online. Elegant pleated design with a modern fit, lightweight fabric and stylish look. Perfect for casual outings, office wear and daily fashion.",
+      "meta_keywords": "Globus Women Top, Sleeveless Top Women, Pleated Top for Women, Casual Wear Top, Women Fashion Top, Globus Clothing, Stylish Women Top, Modern Ladies Top",
+      "showingOnHomePage": true,
+      "amazon_link": "https://www.amazon.in/globus-womens-polyester-regular-fit-top/dp/B0CJ9Q45FC/ref=sr_1_1",
+      "createdAt": "2026-01-03T10:46:29.740Z"
+    }
+  ],
+  "pagination": {
+    "total": 2,
+    "page": 1,
+    "limit": 12,
+    "totalPages": 1
+  }
+}

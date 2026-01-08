@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "6958d7101d486a29cf7c9b21",
+      "title": "VERO Moda Women T-Shirt",
+      "slug": "vero-moda-women-t-shirt",
+      "description": "<p>Material composition</p><p>100% Polyester</p><p>Fit type</p><p>Regular Fit</p><p>Sleeve type</p><p>Long Sleeve</p><p>Length</p><p>Standard Length</p><p>Neck style</p><p>V-Neck</p><p>Style</p><p>Modern</p><p>Country of Origin</p><p>India</p><h3><strong>About this item</strong></h3><ul><li>Fabric Composition,Wash Care: 100% Polyester,Machine Wash</li><li>Fit Type: Regular Fit</li><li>Pattern Type: Solid</li><li>Sleeve Type: Full Sleeve</li><li>Neck Type: V-Neck</li></ul><h3><strong>Additional Information</strong></h3><p>Manufacturer</p><p>N.S.Exports E-24, Sector-11,Noida,201301,IN, N.S.Exports E-24, Sector-11,Noida,201301,IN</p><p>Packer</p><p><br></p><p>VERO MODA RETAIL PRIVATE LIMITED, 4TH FLOOR, THE LALIT MUMBAI, SAHAR AIRPORT ROAD SAHAR ANDHERI-EAST, 400 059 MUMBAI, INDIA/help@veromoda.in/ 022 66489048</p><p>Importer</p><p><br></p><p>VERO MODA RETAIL PRIVATE LIMITED, 4TH FLOOR, THE LALIT MUMBAI, SAHAR AIRPORT ROAD SAHAR ANDHERI-EAST, 400 059 MUMBAI, INDIA/help@veromoda.in/ 022 66489048</p><p>Item Weight</p><p><br></p><p>231 g</p><p>Item Dimensions LxWxH</p><p>14.5 x 12.8 x 0.2 Centimeters</p><p>Net Quantity</p><p>1 Count</p><p>Generic Name</p><p>T-Shirt</p>",
+      "product_price": 1319,
+      "productCategoryId": "695ba765a1f8ca207c7f5550",
+      "sku": "B0DQ8V9HHN",
+      "image_url": "https://m.media-amazon.com/images/I/51+pZon+ZBL._SY741_.jpg",
+      "status": "active",
+      "meta_title": "VERO MODA Women’s Regular Fit Black Top | Stylish & Comfortable Wear",
+      "meta_description": "Shop VERO MODA women’s regular fit black top made with premium fabric. Perfect for casual and everyday wear with a stylish and comfortable design.",
+      "meta_keywords": "vero moda women top, black top for women, women regular fit top, casual women top, vero moda black top, women fashion top, ladies black top",
+      "showingOnHomePage": true,
+      "amazon_link": "https://www.amazon.in/vero-moda-women-t-shirt/dp/B0DQ8V9HHN/ref=sr_1_1",
+      "createdAt": "2026-01-03T08:45:04.693Z",
+      "updatedAt": "2026-01-05T11:58:57.079Z"
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "page": 1,
+    "limit": 12,
+    "totalPages": 1
+  }
+}
