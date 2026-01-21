@@ -6,7 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getProductBySlug, getRelatedProducts, ProductDetail, Product, mapApiProductDetailToProductDetail } from "@/lib/api";
+import { getProductBySlug, getRelatedProducts, ProductDetail, Product, mapApiProductDetailToProductDetail, mapApiProductToProduct } from "@/lib/api";
 import { ChevronRight, Home, Star, ShoppingCart, ExternalLink, Check, Share2 } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { useToast } from "@/hooks/use-toast";
@@ -38,6 +38,49 @@ const ProductDetailClient = () => {
             const mappedProduct = mapApiProductDetailToProductDetail(productFromJson);
             setProduct(mappedProduct);
             setError(null);
+            
+            // Fetch related products from JSON first
+            try {
+              // Get all products from JSON to find related ones
+              const allProducts = jsonData.data || [];
+              
+              // Filter related products: same category, exclude current product
+              const relatedProductsFromJson = allProducts
+                .filter((item: any) => 
+                  item.productCategoryId === productFromJson.productCategoryId &&
+                  item._id !== productFromJson._id &&
+                  item.slug !== productFromJson.slug
+                )
+                .slice(0, 8); // Limit to 8 related products
+              
+              if (relatedProductsFromJson.length > 0) {
+                // Map JSON products to Product format
+                const mappedRelatedProducts = relatedProductsFromJson.map((item: any) => mapApiProductToProduct(item));
+                setRelatedProducts(mappedRelatedProducts);
+              } else {
+                // If no related products in JSON, try API
+                throw new Error("No related products found in JSON");
+              }
+            } catch (jsonRelatedError) {
+              console.log("No related products in JSON or error, trying API:", jsonRelatedError);
+              // Fallback to API for related products
+              try {
+                // Try with MongoDB _id first (most likely what API expects)
+                const related = await getRelatedProducts(mappedProduct._id);
+                setRelatedProducts(related);
+              } catch (err) {
+                console.error("Failed to fetch related products with _id:", err);
+                // Fallback: try with slug
+                try {
+                  const related = await getRelatedProducts(mappedProduct.slug);
+                  setRelatedProducts(related);
+                } catch (err2) {
+                  console.error("Failed to fetch related products with slug:", err2);
+                  setRelatedProducts([]);
+                }
+              }
+            }
+            
             setLoading(false);
             return;
           }
