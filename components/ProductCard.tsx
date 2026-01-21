@@ -15,7 +15,7 @@ interface ProductCardProps {
   rating: number;
   description?: string;
   category: string;
-amazon_link: string;
+  amazon_link: string;
 }
 
 const ProductCard = ({
@@ -39,7 +39,12 @@ const ProductCard = ({
             alt={title}
             className="w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-64 object-contain p-3 sm:p-4 md:p-6 transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
-              e.currentTarget.src = '/placeholder-image.png';
+              // Fallback to a local asset to avoid repeated 404s.
+              // Guard against infinite loops if the placeholder itself fails.
+              const placeholderSrc = "/placeholder-image.svg";
+              if (!e.currentTarget.src.endsWith(placeholderSrc)) {
+                e.currentTarget.src = placeholderSrc;
+              }
             }}
           />
         </Link>
