@@ -178,12 +178,12 @@ const Navbar = () => {
                 <Search className="h-5 w-5" />
               </Button>
             )}
-            <Button variant="ghost" size="icon" aria-label="Wishlist">
+            {/* <Button variant="ghost" size="icon" aria-label="Wishlist">
               <Heart className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="icon" aria-label="Cart">
               <ShoppingBag className="h-5 w-5" />
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Menu Button */}
