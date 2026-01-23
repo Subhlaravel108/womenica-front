@@ -50,7 +50,7 @@ const Navbar = () => {
   // Build nav links with Home + Categories from JSON + Trending + Best Sellers
   const navLinks = [
     { name: "Home", href: "/" },
-    ...categories.map((cat) => ({
+    ...categories.slice(0,4).map((cat) => ({
       name: cat.title,
       href: `/category/${cat.slug}`,
     })),
@@ -151,9 +151,11 @@ const Navbar = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-64"
                 />
-                <Button type="submit" size="sm" variant="default">
-                  <Search className="h-4 w-4" />
-                </Button>
+                {!isSearchOpen && (
+                  <Button type="submit" size="sm" variant="default">
+                    <Search className="h-4 w-4" />
+                  </Button>
+                )}
                 <Button
                   type="button"
                   size="sm"

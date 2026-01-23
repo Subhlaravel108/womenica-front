@@ -32,7 +32,7 @@ const BestSellersClient = () => {
 
       // 1️⃣ Try loading from JSON file first
       try {
-        const jsonRes = await fetch('/data/all_bestSeller_products.json');
+        const jsonRes = await fetch('/data/all_best_seller_products.json');
         if (jsonRes.ok) {
           const jsonData = await jsonRes.json();
           // Filter bestseller products (isBestSeller: true)
