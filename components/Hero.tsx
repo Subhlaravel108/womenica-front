@@ -44,7 +44,7 @@ const Hero = () => {
             <SwiperSlide key={index}>
              <Link href={`/category/${img.url}`} aria-label="Shop Now"> 
                <div
-                className="h-full w-full bg-cover"
+                className="h-full w-full bg-cover bg-center "
                 style={{ backgroundImage: `url(${img.src})` }}
               />
               </Link>
@@ -52,26 +52,7 @@ const Hero = () => {
           ))}
         </Swiper>
 
-        {/* Gradient Overlay */}
-        {/* <div className="absolute inset-0 bg-black/0 z-10" /> */}
-
-        {/* 🔹 Control Buttons */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 sm:gap-3 md:gap-4">
-          {heroImages.map((_, index) => (
-            <Button
-              key={index}
-              variant={activeIndex === index ? "default" : "outline"}
-              size="sm"
-              className={`h-2 w-8 sm:w-10 p-0 rounded-full transition-all duration-300 ${
-                activeIndex === index 
-                  ? "bg-primary scale-110" 
-                  : "bg-white/50 hover:bg-white/70"
-              }`}
-              onClick={() => handleButtonClick(index)}
-              aria-label={`Show slide ${index + 1}`}
-            />
-          ))}
-        </div>
+        
 
       
       </div>
