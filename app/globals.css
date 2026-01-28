@@ -268,3 +268,20 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   transform: rotate(3deg) translate(0px, -4px);
 }
+
+
+.swiper-pagination-bullet {
+  background: #ee0909 !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Hide dots on mobile */
+@media (max-width: 640px) {
+  .swiper-pagination {
+    display: none !important;
+  }
+}
