@@ -89,6 +89,22 @@ const formatPrice = (price: number): string => {
 
 // Helper function to map API product to frontend product
 // This function handles both API responses and JSON file data structures
+const normalizeAmazonUrl = (url: string, tag = "womenica-21") => {
+  if (!url) return "";
+
+  try {
+    // 1️⃣ Keep only part till /dp/ASIN
+    const dpMatch = url.match(/https?:\/\/www\.amazon\.in\/.+?\/dp\/[A-Z0-9]{10}/i);
+
+    if (!dpMatch) return url;
+
+    // 2️⃣ Append affiliate tag
+    return `${dpMatch[0]}/?tag=${tag}`;
+  } catch (e) {
+    return url;
+  }
+};
+
 export const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
   // Extract category information from API response
   let categoryTitle = "General";
@@ -101,6 +117,8 @@ export const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
     categoryTitle = apiProduct.category.title;
     categorySlug = apiProduct.category.slug;
   }
+
+  const amazonLink = normalizeAmazonUrl(apiProduct?.amazon_link || "", "womenica-21");
   
   return {
     slug: apiProduct.slug || apiProduct._id, // Use slug, fallback to _id
@@ -112,7 +130,7 @@ export const mapApiProductToProduct = (apiProduct: ApiProduct): Product => {
     category: categoryTitle,
     categorySlug: categorySlug || apiProduct.slug,
     description: apiProduct.description,
-    amazon_link: apiProduct?.amazon_link || "", // Use amazon_link from API
+    amazon_link: amazonLink
   };
 };
 

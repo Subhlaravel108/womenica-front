@@ -49,7 +49,7 @@ const FeaturedProducts = () => {
 
     if (res.ok) {
       const data = await res.json();
-      // console.log("Loaded from file:", data);
+      console.log("Loaded from file:", data);
 
       // Map JSON data to Product interface format using the shared mapping function
       const mappedProducts = data.data.map((item: any) => mapApiProductToProduct(item));
