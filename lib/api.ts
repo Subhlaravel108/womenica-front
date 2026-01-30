@@ -354,7 +354,7 @@ export const getRelatedProducts = async (idOrSlug: string): Promise<Product[]> =
     const responseData = response.data;
     
     // Log the full response to debug
-    console.log("Related products API response:", responseData);
+    // console.log("Related products API response:", responseData);
     
     // Handle response structure: { success: true, data: [...] } or direct array
     let productsData: ApiProduct[] = [];
@@ -375,7 +375,7 @@ export const getRelatedProducts = async (idOrSlug: string): Promise<Product[]> =
       return [];
     }
     
-    console.log("Parsed products data:", productsData);
+    // console.log("Parsed products data:", productsData);
     
     // Map API products to frontend product format
     return productsData.map(mapApiProductToProduct);

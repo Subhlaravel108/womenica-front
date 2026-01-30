@@ -39,7 +39,7 @@ const CategoryClient = () => {
           if (jsonRes.ok) {
             const jsonData = await jsonRes.json();
             const productsData = jsonData.data || [];
-
+            // console.log("Loaded products JSON data:", productsData);
             if (productsData.length > 0) {
               const mappedProducts = productsData.map(mapApiProductToProduct);
               const itemsPerPage = 12;
@@ -60,8 +60,10 @@ const CategoryClient = () => {
                 : null;
 
               if (categoryData) {
+                // console.log("Loaded category from JSON:", categoryData);
                 setCategory(categoryData);
                 setCategoryProducts(paginatedProducts);
+                // console.log("Loaded products from JSON:", paginatedProducts);
                 setPagination({
                   total: mappedProducts.length,
                   page: currentPage,

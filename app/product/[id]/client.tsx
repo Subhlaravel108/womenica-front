@@ -37,6 +37,7 @@ const ProductDetailClient = () => {
             // Map JSON data to ProductDetail format
             const mappedProduct = mapApiProductDetailToProductDetail(productFromJson);
             setProduct(mappedProduct);
+            // console.log("Loaded product from JSON:", mappedProduct);
             setError(null);
             
             // Fetch related products from JSON first
