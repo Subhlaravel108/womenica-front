@@ -12,35 +12,6 @@ const FeaturedProducts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await getProducts();
-  //       // Ensure data is an array
-  //       if (Array.isArray(data)) {
-  //         setProducts(data);
-  //         setError(null);
-  //       } else {
-  //         console.error("Products data is not an array:", data);
-  //         setError("Invalid data format received from server.");
-  //         setProducts([]);
-  //       }
-  //     } catch (err) {
-  //       console.error("Failed to fetch products:", err);
-  //       setError("Failed to load products. Please try again later.");
-  //       setProducts([]);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchProducts();
-  // }, []);
-
-  // Get featured products - filter by showingOnHomePage or take first 8
-  // Note: showingOnHomePage filter should be done in API, but we can also filter here if needed
-  
 
    const loadProducts = async () => {
   try {
@@ -89,7 +60,9 @@ const FeaturedProducts = () => {
   }, []);
 
 
-
+ const randomProducts = products
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 8);
 
   // const featuredProducts = products.slice(0, 8);
 
@@ -118,13 +91,13 @@ const FeaturedProducts = () => {
           <div className="text-center py-12">
             <p className="text-muted-foreground">{error}</p>
           </div>
-        ) : products.length === 0 ? (
+        ) : randomProducts.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">No featured products available.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map((product) => (
+            {randomProducts.map((product) => (
               <ProductCard
                 key={product.slug}
                 slug={product.slug}

@@ -139,7 +139,7 @@ const Categories = () => {
         ) : Array.isArray(categories) && categories.length > 0 ? (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {categories.map((category) => {
+              {categories.slice(0,8).map((category) => {
                 const Icon = iconMap[category.slug] || Gem;
                 // Strip HTML tags from description
                 const cleanDescription = stripHtmlTags(category.description || "");

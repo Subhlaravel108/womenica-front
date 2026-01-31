@@ -2,6 +2,48 @@
   "success": true,
   "data": [
     {
+      "_id": "69720c8fa27a4831e33dad1c",
+      "title": "Women’s Gift & Lifestyle Picks – Sets, Combos & Festives",
+      "description": "<p>Discover stylish gift sets, combo offers, and festive lifestyle picks for women—perfect for every occasion.</p>",
+      "meta_title": "Gift & Lifestyle for Women | Fashion Gift Sets, Combo Offers & Festive Collection",
+      "meta_description": "gift and lifestyle products, women gift items, fashion gift sets, combo offers for women, festival special gifts, lifestyle products online, women gifting collection, festive gift ideas for women, gift hampers for women",
+      "meta_keywords": "gift and lifestyle products, women gift items, fashion gift sets, combo offers for women, festival special gifts, lifestyle products online, women gifting collection, festive gift ideas for women, gift hampers for women",
+      "image": "https://m.media-amazon.com/images/I/91tbxnFTUmL._SY679_PIbundle-6,TopRight,0,0_SX509SY679SH20_.jpg",
+      "status": "Active",
+      "slug": "womens-gift-lifestyle-picks-sets-combos-festives",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-22T11:39:59.157Z",
+      "updatedAt": "2026-01-31T09:18:09.116Z"
+    },
+    {
+      "_id": "69720bb7a27a4831e33dad1b",
+      "title": "Beauty & Personal Care",
+      "description": "<p>Beauty &amp; Personal Care essentials for women, including makeup and skincare products for daily grooming and confidence.</p>",
+      "meta_title": "Beauty & Personal Care for Women | Makeup, Skincare, Haircare & Hygiene Products",
+      "meta_description": "Shop beauty and personal care products for women including makeup, skincare, haircare, and hygiene essentials for daily use and special occasions.",
+      "meta_keywords": "beauty and personal care, women beauty products, makeup products for women, skincare products, haircare products, personal care items, beauty products online, women grooming products, cosmetic products India",
+      "image": "https://m.media-amazon.com/images/I/61CAu6lNOJL._SX522_.jpg",
+      "status": "Active",
+      "slug": "beauty-personal-care",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-22T11:36:23.157Z",
+      "updatedAt": "2026-01-31T09:22:36.533Z"
+    },
+    {
+      "_id": "695ba765a1f8ca207c7f5550",
+      "title": "Fashion",
+      "description": "<p>Fashion</p>",
+      "meta_title": "Fashion",
+      "meta_description": "Fashion",
+      "meta_keywords": "Fashion",
+      "image": "https://m.media-amazon.com/images/I/51HTyfRbS9L._SY625_.jpg",
+      "status": "Active",
+      "slug": "fashion",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-05T11:58:29.609Z",
+      "updatedAt": "2026-01-31T09:02:02.053Z"
+    },
+    {
       "_id": "6958e5371d486a29cf7c9b26",
       "title": "Western Wear",
       "description": "<p>Modern and stylish western wear for women including tops, jeans, dresses, skirts, and jumpsuits.</p>",
@@ -65,7 +107,8 @@
       "status": "Active",
       "slug": "womens-clothing",
       "showingOnHomePage": true,
-      "createdAt": "2026-01-03T09:28:05.843Z"
+      "createdAt": "2026-01-03T09:28:05.843Z",
+      "updatedAt": "2026-01-08T06:16:41.994Z"
     }
   ]
 }

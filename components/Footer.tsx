@@ -13,23 +13,23 @@ interface Category {
 }
 
 const Footer = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+  // const [categories, setCategories] = useState<Category[]>([]);
 
   // Load categories from JSON file
-  useEffect(() => {
-    const loadCategories = async () => {
-      try {
-        const res = await fetch("/data/categories_homepage.json");
-        if (res.ok) {
-          const data = await res.json();
-          setCategories(data.data || []);
-        }
-      } catch (err) {
-        console.warn("Failed to load categories:", err);
-      }
-    };
-    loadCategories();
-  }, []);
+  // useEffect(() => {
+  //   const loadCategories = async () => {
+  //     try {
+  //       const res = await fetch("/data/categories_homepage.json");
+  //       if (res.ok) {
+  //         const data = await res.json();
+  //         setCategories(data.data || []);
+  //       }
+  //     } catch (err) {
+  //       console.warn("Failed to load categories:", err);
+  //     }
+  //   };
+  //   loadCategories();
+  // }, []);
 
   const quickLinks = [
     { name: "About Us", href: "/about-us" },
@@ -38,6 +38,16 @@ const Footer = () => {
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Service", href: "/terms-of-service" },
     // { name: "Affiliate Disclosure", href: "/about-us#affiliate-disclosure" },
+  ];
+
+    const categories = [
+    {name: "Western Wear", href: "/category/western-wear"},
+    // {name:"Stores", href:"/category/stores"},
+    {name:"Women's Shooes", href:"/category/womens-shoes"},
+    {name:"Accessories", href:"/category/accessories"},
+    {name:"Women's Clothing", href:"/category/womens-clothing"},
+    // { name: "Trending", href: "/trending" },
+    // { name: "Best Sellers", href: "/bestsellers" },
   ];
 
   return (
@@ -91,13 +101,13 @@ const Footer = () => {
             <h4 className="font-display text-lg font-semibold mb-4">Categories</h4>
             <ul className="space-y-3">
               {categories.length > 0 ? (
-                categories.map((category) => (
-                  <li key={category._id}>
+                categories.map((category,idx) => (
+                  <li key={idx}>
                     <Link
-                      href={`/category/${category.slug}`}
+                      href={category.href}
                       className="text-primary-foreground/70 hover:text-primary transition-colors"
                     >
-                      {category.title}
+                      {category.name}
                     </Link>
                   </li>
                 ))

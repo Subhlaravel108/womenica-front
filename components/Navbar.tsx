@@ -32,28 +32,33 @@ const Navbar = () => {
   };
 
   // Load categories from JSON file
-  useEffect(() => {
-    const loadCategories = async () => {
-      try {
-        const res = await fetch("/data/categories_homepage.json");
-        if (res.ok) {
-          const data = await res.json();
-          setCategories(data.data || []);
-        }
-      } catch (err) {
-        console.warn("Failed to load categories:", err);
-      }
-    };
-    loadCategories();
-  }, []);
+  // useEffect(() => {
+  //   const loadCategories = async () => {
+  //     try {
+  //       const res = await fetch("/data/categories_homepage.json");
+  //       if (res.ok) {
+  //         const data = await res.json();
+  //         setCategories(data.data || []);
+  //       }
+  //     } catch (err) {
+  //       console.warn("Failed to load categories:", err);
+  //     }
+  //   };
+  //   loadCategories();
+  // }, []);
 
   // Build nav links with Home + Categories from JSON + Trending + Best Sellers
   const navLinks = [
     { name: "Home", href: "/" },
-    ...categories.slice(0,4).map((cat) => ({
-      name: cat.title,
-      href: `/category/${cat.slug}`,
-    })),
+    // ...categories.slice(0,4).map((cat) => ({
+    //   name: cat.title,
+    //   href: `/category/${cat.slug}`,
+    // })),
+    {name: "Western Wear", href: "/category/western-wear"},
+    // {name:"Stores", href:"/category/stores"},
+    {name:"Women's Shooes", href:"/category/womens-shoes"},
+    {name:"Accessories", href:"/category/accessories"},
+    {name:"Women's Clothing", href:"/category/womens-clothing"},
     { name: "Trending", href: "/trending" },
     { name: "Best Sellers", href: "/bestsellers" },
   ];

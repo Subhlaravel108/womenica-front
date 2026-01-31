@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "pagination": {
+    "total": 1,
+    "page": 1,
+    "limit": 12,
+    "totalPages": 1
+  },
+  "data": [
+    {
+      "_id": "69734665c53bf132e728e80c",
+      "title": "NYRWANA Queen of Everything Coffee Mug with Golden Crown & Spoon – 350ml Green Ceramic Mug for Women",
+      "slug": "nyrwana-queen-of-everything-coffee-mug-with-golden-crown-spoon-350ml-green-ceramic-mug-for-women",
+      "description": "<p>Surprise the queen in your life with the elegant <strong>NYRWANA Queen of Everything Coffee Mug</strong>, designed to make every sip feel special. Crafted from high-quality ceramic, this beautiful <strong>350ml green coffee mug</strong> comes with a luxurious <strong>golden crown lid and spoon</strong>, adding a royal touch to her daily tea or coffee routine.</p><p>Whether you’re looking for a <strong>birthday present for your girlfriend</strong>, a thoughtful <strong>anniversary gift for your wife</strong>, or a romantic <strong>Valentine’s Day gift</strong>, this mug is a charming and meaningful choice. The stylish design and inspirational message make it perfect for home, office, or work desk use.</p>",
+      "product_price": 549,
+      "productCategoryId": "69720c8fa27a4831e33dad1c",
+      "sku": "B09MC1S771",
+      "image_url": "https://m.media-amazon.com/images/I/71qCGFl3CFL._SX679_.jpg",
+      "status": "active",
+      "meta_title": "NYRWANA Queen of Everything Mug | Gift for Girlfriend, Wife & Women",
+      "meta_description": "Make her feel like royalty with the NYRWANA “Queen of Everything” Coffee Mug. Featuring a stylish golden crown lid and matching spoon, this 350ml green ceramic mug is a perfect gift for girlfriends, wives, and special women on birthdays, anniversaries, and Valentine’s Day.",
+      "meta_keywords": "NYRWANA coffee mug, Queen of Everything mug, gift for women mug, birthday gift for girlfriend, anniversary gift for wife,",
+      "showingOnHomePage": true,
+      "inTrending": false,
+      "isBestSeller": true,
+      "amazon_link": "https://www.amazon.in/nyrwana-queen-of-everything-coffee-mug-with-golden-crown-spoon-350ml-green-ceramic-mug-for-women/dp/B09MC1S771?tag=womenica-21",
+      "createdAt": "2026-01-23T09:59:01.970Z",
+      "updatedAt": "2026-01-28T12:19:59.046Z"
+    }
+  ]
+}
