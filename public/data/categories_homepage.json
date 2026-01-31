@@ -2,6 +2,19 @@
   "success": true,
   "data": [
     {
+      "_id": "697ddfa52214cb0b28362203",
+      "title": "gym prouducts",
+      "description": "<p>Essential gym products to boost your workout, strength, and fitness performance.</p>",
+      "meta_title": "Gym Products & Fitness Essentials for Home & Workout Training",
+      "meta_description": "Shop premium gym products and fitness essentials to enhance your workouts, strength training, and overall fitness performance at home or gym.",
+      "meta_keywords": "gym products, fitness accessories, workout equipment, home gym items, gym essentials, fitness gear, exercise tools, strength training products",
+      "image": "https://m.media-amazon.com/images/I/618eCTjdmXL._SX679_.jpg",
+      "status": "Active",
+      "slug": "gym-prouducts",
+      "showingOnHomePage": true,
+      "createdAt": "2026-01-31T10:55:33.144Z"
+    },
+    {
       "_id": "69720c8fa27a4831e33dad1c",
       "title": "Women’s Gift & Lifestyle Picks – Sets, Combos & Festives",
       "description": "<p>Discover stylish gift sets, combo offers, and festive lifestyle picks for women—perfect for every occasion.</p>",
@@ -28,20 +41,6 @@
       "showingOnHomePage": true,
       "createdAt": "2026-01-22T11:36:23.157Z",
       "updatedAt": "2026-01-31T09:22:36.533Z"
-    },
-    {
-      "_id": "695ba765a1f8ca207c7f5550",
-      "title": "Fashion",
-      "description": "<p>Fashion</p>",
-      "meta_title": "Fashion",
-      "meta_description": "Fashion",
-      "meta_keywords": "Fashion",
-      "image": "https://m.media-amazon.com/images/I/51HTyfRbS9L._SY625_.jpg",
-      "status": "Active",
-      "slug": "fashion",
-      "showingOnHomePage": true,
-      "createdAt": "2026-01-05T11:58:29.609Z",
-      "updatedAt": "2026-01-31T09:02:02.053Z"
     },
     {
       "_id": "6958e5371d486a29cf7c9b26",
