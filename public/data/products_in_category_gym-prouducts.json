@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "pagination": {
+    "total": 2,
+    "page": 1,
+    "limit": 12,
+    "totalPages": 1
+  },
+  "data": [
+    {
+      "_id": "697dec7ba39cfb924164906e",
+      "title": "SILENCIO Sit-Up Bar with Foam Handle & Rubber Suction Base | Ab Workout & Push-Up Assistant Fitness Equipment",
+      "slug": "silencio-sit-up-bar-with-foam-handle-rubber-suction-base-ab-workout-push-up-assistant-fitness-equipment",
+      "description": "<p>The SILENCIO Sit-Up Bar is designed to support effective abdominal workouts at home. Featuring soft foam handles for comfort and a strong rubber suction base for stability, it assists with sit-ups, push-ups, and core</p>",
+      "product_price": 445,
+      "productCategoryId": "697ddfa52214cb0b28362203",
+      "sku": "B09CR1CVW7",
+      "image_url": "https://m.media-amazon.com/images/I/61nX-qFqz7L._SX679_.jpg",
+      "status": "active",
+      "meta_title": "SILENCIO Sit-Up Bar | Ab Workout & Push-Up Exercise Equipment",
+      "meta_description": "The SILENCIO Sit-Up Bar is designed to support effective abdominal workouts at home. Featuring soft foam handles for comfort and a strong rubber suction base for stability, it assists with sit-ups, push-ups, and core",
+      "meta_keywords": "sit up bar, sit up assistant, abdominal workout equipment, ab exercise trainer, home gym fitness equipment, push up assistant device, weight loss workout tool, suction sit up bar, core exercise equipment",
+      "showingOnHomePage": false,
+      "inTrending": true,
+      "isBestSeller": true,
+      "amazon_link": "https://www.amazon.in/silencio-sit-up-bar-with-foam-handle-rubber-suction-base-ab-workout-push-up-assistant-fitness-equipment/dp/B09CR1CVW7?tag=womenica-21",
+      "createdAt": "2026-01-31T11:50:18.934Z"
+    },
+    {
+      "_id": "697de34c2214cb0b28362204",
+      "title": "Imperative Women’s High Waist Stretchable Gym Tights Leggings with Crossover Belt | Yoga & Activewear Pants",
+      "slug": "imperative-womens-high-waist-stretchable-gym-tights-leggings-with-crossover-belt-yoga-activewear-pants",
+      "description": "<p>Imperative high-waist gym tights are designed for comfort, stretch, and style. Made with premium stretchable fabric, these leggings feature a flattering crossover waistband that offers a secure fit and enhanced support—perfect for gym workouts, yoga, running, and everyday active wear.</p>",
+      "product_price": 375,
+      "productCategoryId": "697ddfa52214cb0b28362203",
+      "sku": "B0DK9B4PD4",
+      "image_url": "https://m.media-amazon.com/images/I/31ro1GTxOmL.jpg",
+      "status": "active",
+      "meta_title": "High Waist Gym Tights Leggings for Women | Imperative Activewear",
+      "meta_description": "Imperative high-waist gym tights are designed for comfort, stretch, and style. Made with premium stretchable fabric, these leggings feature a flattering crossover waistband that offers a secure fit and enhanced support—perfect for gym workouts, yoga, running, and everyday active wear.",
+      "meta_keywords": "women gym leggings, high waist leggings, workout tights for women, yoga pants women, stretchable gym tights, activewear leggings, crossover waist leggings, fitness leggings for girls, women sports leggings",
+      "showingOnHomePage": true,
+      "inTrending": true,
+      "isBestSeller": true,
+      "amazon_link": "https://www.amazon.in/imperative-womens-high-waist-stretchable-gym-tights-leggings-with-crossover-belt-yoga-activewear-pants/dp/B0DK9B4PD4?tag=womenica-21",
+      "createdAt": "2026-01-31T11:11:08.449Z"
+    }
+  ]
+}
